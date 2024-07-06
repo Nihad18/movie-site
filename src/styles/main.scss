@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap");
+@import "./partials/variables.scss";
+@import "./partials/mixin.scss";
+@import "./partials/extend.scss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+img,
+i,
+ol,
+ul,
+li,
+footer,
+header,
+nav,
+section,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+button,
+input {
+    appearance: none;
+    border: none;
+    background-color: transparent;
+}
+
+header,
+nav,
+section {
+    display: block;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+.container {
+    margin: 0 auto;
+    max-width: 1320px;
+    padding: 0 16px;
+    box-sizing: content-box;
+    @media (min-width: 1920px) {
+        max-width: 1596px;
+    }
+}
+
+body,
+button {
+    font-family: "Roboto", sans-serif;
+}
