@@ -1,7 +1,7 @@
 
 const Home = () => {
   return (
-    <div style={{ minHeight: "100vh", paddingTop: "160px", color: "#fff" }}>
+    <div className="text-white">
       <h1>Home</h1>
     </div>
   )
