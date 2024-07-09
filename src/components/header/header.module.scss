@@ -2,6 +2,58 @@
 @import "../../styles/partials/mixin.scss";
 
 .header {
-  padding: 24px 0;
-  color: white;
+    background-color: red;
+    padding-top: 21.5px;
+    padding-bottom: 28.03px;
+    width: 100%;
+    @include Position($pos: fixed, $top: 0, $left: 0, $right: 0, $z-index: 10);
+}
+
+.switch {
+    --secondary-container: #121212;
+    --primary: #e5e5e5;
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 47px;
+    height: 21px;
+
+    input {
+        display: none;
+        opacity: 0;
+        width: 0;
+        height: 0;
+        &:checked + .slider {
+            background-color: var(--secondary-container);
+            &::before {
+                background-color: var(--primary);
+                transform: translateX(25px);
+            }
+        }
+        &:focus + .slider {
+            box-shadow: 0 0 1px var(--secondary-container);
+        }
+    }
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--primary);
+        transition: 0.2s;
+        border-radius: 30px;
+        &:before {
+            position: absolute;
+            content: "";
+            height: 17px;
+            width: 17px;
+            border-radius: 50%;
+            left: 2px;
+            bottom: 2px;
+            background-color: var(--secondary-container);
+            transition: 0.4s;
+        }
+    }
 }

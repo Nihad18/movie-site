@@ -1,0 +1,10 @@
+@tailwind components;
+
+@layer components {
+    .login {
+        @apply h-screen;
+    }
+    .form {
+        @apply  pt-28;
+    }
+}

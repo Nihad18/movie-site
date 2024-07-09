@@ -1,8 +1,13 @@
 
 const Home = () => {
   return (
-    <div className="text-white">
-      <h1>Home</h1>
+    <div className="text-white dark:bg-black">
+      <div className="container dark:text-white text-black">
+        <h1 >
+          carousel adding here
+        </h1>
+        <h1>Home</h1>
+      </div>
     </div>
   )
 }
