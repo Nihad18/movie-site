@@ -1,10 +1,32 @@
+@import "../../../styles/partials/variables.scss";
 @tailwind components;
 
 @layer components {
     .login {
-        @apply h-screen;
+        @apply h-screen bg-cover relative grid place-items-center;
     }
-    .form {
-        @apply  pt-28;
+    .wrapper {
+        @apply rounded-[5px]  bg-white;
     }
+    .title {
+        @apply text-3xl uppercase text-center font-bold;
+    }
+}
+.login {
+    &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: #000000ce;
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+    }
+}
+.wrapper {
+    max-width: 700px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    padding: 30px 112px 35px;
 }
