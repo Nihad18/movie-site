@@ -8,7 +8,7 @@ import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/Carouse
 
 import MovieService from "@/services/MovieService";
 
-export function CarouselDemo() {
+export function CarouselContainer() {
     const { activeCarouselIndex } = useContext(DataContext);
     const { data, error, isLoading } = useQuery({ queryKey: ["fetchData"], queryFn: () => MovieService.getAll() });
     if (isLoading) console.log("loading...");
