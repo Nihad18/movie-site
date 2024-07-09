@@ -1,11 +1,12 @@
 import * as React from "react";
 import { useContext } from "react";
 import { DataContext } from "@/context/MainContext";
-import useEmblaCarousel, {
-    type EmblaCarouselType as CarouselApi,
-    type EmblaOptionsType as CarouselOptions,
-    type EmblaPluginType as CarouselPlugin,
-} from "embla-carousel-react";
+import useEmblaCarousel from 'embla-carousel-react';
+import {
+  type EmblaCarouselType as CarouselApi,
+  type EmblaOptionsType as CarouselOptions,
+  type EmblaPluginType as CarouselPlugin,
+} from 'embla-carousel';
 
 import { cn } from "@/lib/utils";
 
