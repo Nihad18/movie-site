@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   const { theme, setTheme } = useContext(DataContext)
-  console.log(theme)
   return (
     <header className={`${styles.header}`}>
       <div className="container">

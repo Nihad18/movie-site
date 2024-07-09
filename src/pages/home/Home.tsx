@@ -1,7 +1,7 @@
 
 const Home = () => {
   return (
-    <div className="text-white dark:bg-black">
+    <div className="text-white dark:bg-black pt-[88px]">
       <div className="container dark:text-white text-black">
         <h1 >
           carousel adding here

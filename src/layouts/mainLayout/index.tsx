@@ -13,7 +13,7 @@ const MainLayout = () => {
             <main>
                 <Outlet />
             </main>
-            
+
         </div>
     )
 }

@@ -17,7 +17,7 @@ export default {
                 "gray-lighter-alt": "#D0D0D0",
                 green: "#2BA637",
                 "gray-lightest-alt2": "#CFCFCF",
-                red: "#AB0A10",
+                primary: "#AB0A10",
                 "gray-lightest-alt3": "#CACACA",
                 "gray-lightest-alt4": "#C9C9C9",
                 "gray-darker": "#4C4C4C",
