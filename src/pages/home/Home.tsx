@@ -3,13 +3,12 @@ import { CarouselContainer } from "@/components/ui/CarouselContainer";
 
 const Home = () => {
     return (
-        <div className='text-white dark:bg-black pt-[88px]'>
+        <section>
+            <CarouselContainer />
             <div className='container text-black dark:text-white'>
-                <CarouselContainer />
-                <Timeline/>
-                <h1>Home</h1>
+                <Timeline />
             </div>
-        </div>
+        </section>
     );
 };
 
