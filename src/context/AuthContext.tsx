@@ -1,4 +1,4 @@
-import { AuthContextType, LoginData } from "@/types";
+import { AuthContextType, LoginData } from "@/types/authTypes";
 import { useContext, createContext, useState, ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 

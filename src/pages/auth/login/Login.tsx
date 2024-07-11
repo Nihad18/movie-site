@@ -5,13 +5,10 @@ import { Link } from "react-router-dom"
 import { Formik } from 'formik';
 import { LoginSchema } from "@/validations";
 import { useAuth } from "@/context/AuthContext";
+import { LoginData } from "@/types/authTypes";
 
-interface MyFormValues {
-  email: string;
-  password: string;
-}
 const Login = () => {
-  const initialValues: MyFormValues = { email: "", password: "" };
+  const initialValues: LoginData = { email: "", password: "" };
 
   const auth = useAuth();
 

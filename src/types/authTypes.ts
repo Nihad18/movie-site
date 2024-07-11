@@ -9,4 +9,3 @@ export type AuthContextType = {
     loginAction: (data: LoginData) => Promise<void>;
     logOut: () => void;
 };
-
