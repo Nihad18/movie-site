@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-    darkMode:"class",
+    darkMode: "class",
     theme: {
         extend: {
             colors: {
@@ -27,6 +27,20 @@ export default {
                 "gray-normal-alt": "#7D7D7D",
                 "gray-darkest-alt": "#6A6A6A",
                 "gray-lighter-alt5": "#D8D8D8",
+            },
+            keyframes: {
+                fadeIn: {
+                    "0%": { opacity: 0 },
+                    "100%": { opacity: 1 },
+                },
+                slideIn: {
+                    "0%": { transform: "translateY(100%)" },
+                    "100%": { transform: "translateY(0)" },
+                },
+            },
+            animation: {
+                fadeIn: "fadeIn 0.5s ease-in-out",
+                slideIn: "slideIn 0.5s ease-in-out",
             },
         },
     },
