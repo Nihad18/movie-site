@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/Button"
 import { Link } from "react-router-dom"
 import { Formik } from 'formik';
 import { LoginSchema } from "@/validations";
+import { useAuth } from "@/context/AuthContext";
 
 interface MyFormValues {
   email: string;
@@ -11,6 +12,9 @@ interface MyFormValues {
 }
 const Login = () => {
   const initialValues: MyFormValues = { email: "", password: "" };
+
+  const auth = useAuth();
+
   return (
     <div style={{ backgroundImage: "url(/bg-cover.png)" }} className={styles.login}>
       <div className={`${styles.wrapper}`}>
@@ -18,10 +22,8 @@ const Login = () => {
         <Formik
           initialValues={initialValues}
           onSubmit={(values, actions) => {
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              actions.setSubmitting(false);
-            }, 1);
+            auth?.loginAction(values);
+            actions.setSubmitting(false);
           }}
           validationSchema={LoginSchema}
         >
@@ -29,7 +31,7 @@ const Login = () => {
             <form className="grid gap-y-5" onSubmit={props.handleSubmit} noValidate>
               <Input name="email" type="email" id="email" placeholder="Email" />
               <Input name="password" type="password" id="password" placeholder="Password" />
-              <Button type="submit">Sign In</Button>
+              <Button type="submit" disabled={props.isSubmitting}>Sign In</Button>
             </form>
           )}
         </Formik>
