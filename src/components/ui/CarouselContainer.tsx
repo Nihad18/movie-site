@@ -19,7 +19,7 @@ export function CarouselContainer() {
     return (
         <div className='relative max-w-sm min-w-full select-none carousel-image'>
             <LazyLoadImage
-                alt={`${data?.data?.results?.[activeCarouselIndex]?.title} Poster`}
+                alt={`${data?.data?.results?.[activeCarouselIndex]?.title || data?.data?.results?.[activeCarouselIndex]?.name} Poster`}
                 effect='blur'
                 src={`https://image.tmdb.org/t/p/original/${data?.data?.results?.[activeCarouselIndex]?.backdrop_path}`}
                 placeholderSrc='placeholder.jpg'
@@ -44,7 +44,7 @@ export function CarouselContainer() {
                                 <CardContent className='flex flex-col items-center justify-end w-full h-full aspect-square'>
                                     {index == activeCarouselIndex && (
                                         <div className='mb-[27px] text-center animate-slideIn delay-[400ms] z-[2]'>
-                                            <div className='text-[20px] text-white text-center mb-[13px]'>{item.title}</div>
+                                            <div className='text-[20px] text-white text-center mb-[13px]'>{item.title || item.name}</div>
                                             <div>
                                                 <Button className=' h-[36px] w-[123px] px-[25px] py-[8px] rounded-[5px] text-white bg-primary'>
                                                     Book now
@@ -53,7 +53,7 @@ export function CarouselContainer() {
                                         </div>
                                     )}
                                     <LazyLoadImage
-                                        alt={`${item?.title} Poster`}
+                                        alt={`${item?.title || item?.name} Poster`}
                                         effect='blur'
                                         src={`https://image.tmdb.org/t/p/original/${item?.backdrop_path}`}
                                         placeholderSrc='placeholder.jpg'
