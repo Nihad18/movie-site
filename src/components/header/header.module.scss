@@ -2,11 +2,10 @@
 @import "../../styles/partials/mixin.scss";
 
 .header {
-    background-color: red;
     padding-top: 21.5px;
     padding-bottom: 28.03px;
     width: 100%;
-    @include Position($pos: fixed, $top: 0, $left: 0, $right: 0, $z-index: 10);
+    @include Position($pos: fixed, $top: 0, $left: 0, $right: 0, $z-index: 9999);
 }
 
 .switch {
