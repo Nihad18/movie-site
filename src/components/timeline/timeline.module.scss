@@ -1,54 +1,40 @@
+@import "../../styles/partials/variables.scss";
 .lineContainer {
     position: relative;
     margin-top: 20px;
-}
 
-.line {
-    position: absolute;
-    height: 1px;
-    width: 100%;
-    background-color: #6a6a6a;
-}
+    .line {
+        position: absolute;
+        height: 1px;
+        width: 100%;
+    }
 
-.fillLine {
-    position: absolute;
-    height: 1px;
-    background-color: white;
-    transition: width 0.3s ease;
-}
+    .fillLine {
+        position: absolute;
+        height: 1px;
+        transition: width 0.3s ease;
+    }
+    .markerContainer {
+        position: absolute;
+        top: -8px;
+        cursor: pointer;
 
-.markerContainer {
-    position: absolute;
-    top: -8px;
-    cursor: pointer;
-}
-
-.markerLabel,
-.activeMarkerLabel {
-    font-weight: 500;
-    font-size: 17px;
-    line-height: 24px;
-    position: absolute;
-    top: -13px;
-    left: -10px;
-}
-.markerLabel {
-    color: #7d7d7d;
-}
-.activeMarkerLabel {
-    color: white;
-}
-.marker,
-.activeMarker {
-    position: absolute;
-    top: 24px;
-    height: 9px;
-    width: 9px;
-    border-radius: 50%;
-}
-.marker {
-    background-color: #7d7d7d;
-}
-.activeMarker {
-    background-color: white;
+        .markerLabel,
+        .activeMarkerLabel {
+            font-weight: 500;
+            font-size: 17px;
+            line-height: 24px;
+            position: absolute;
+            top: -13px;
+            left: -10px;
+        }
+        .marker,
+        .activeMarker {
+            position: absolute;
+            top: 24px;
+            height: 9px;
+            width: 9px;
+            border-radius: 50%;
+        }
+    }
 }
