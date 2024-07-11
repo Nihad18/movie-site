@@ -10,12 +10,12 @@ import MovieService from "@/services/MovieService";
 
 export function CarouselContainer() {
     const { activeCarouselIndex } = useContext(DataContext);
-    const { data, error, isLoading } = useQuery({ queryKey: ["fetchData"], queryFn: () => MovieService.getAll() });
+    const { data, isLoading } = useQuery({ queryKey: ["fetchData"], queryFn: () => MovieService.getAll() });
     if (isLoading) console.log("loading...");
     return (
-        <div className='relative max-w-sm min-w-full select-none'>
+        <div className='relative max-w-sm min-w-full select-none carousel-image'>
             <img
-                className='absolute top-0 left-0 object-cover h-[100vh] w-[100vw]'
+                className='absolute top-0 left-0 object-cover h-[100vh] w-[100vw] '
                 src={`https://image.tmdb.org/t/p/original/${data?.data?.results?.[activeCarouselIndex]?.backdrop_path}`}
                 alt={`${data?.data?.results?.[activeCarouselIndex]?.title} Poster`}
                 loading='lazy'
@@ -23,20 +23,19 @@ export function CarouselContainer() {
             <Carousel
                 opts={{
                     align: "start",
-                    dragFree: "true",
-                    loop: "true",
+                    dragFree: true,
+                    loop: true,
                 }}
-                className='w-full'
+                className='w-full relative z-10'
             >
                 <CarouselContent>
                     {data?.data?.results?.map((item: any, index: any) => (
                         <CarouselItem key={index} id={`${index}`}>
                             <Card
-                                className={`mx-[23px] cursor-pointer relative transition-[width,height] ${
-                                    index == activeCarouselIndex
-                                        ? "w-[287px!important] h-[383px!important]"
-                                        : "w-[124px!important] h-[179px!important]"
-                                }`}
+                                className={`mx-[23px] cursor-pointer relative transition-[width,height] ${index == activeCarouselIndex
+                                    ? "w-[287px!important] h-[383px!important]"
+                                    : "w-[124px!important] h-[179px!important]"
+                                    }`}
                             >
                                 <CardContent className='flex flex-col items-center justify-end w-full h-full aspect-square'>
                                     {index == activeCarouselIndex && (
@@ -50,9 +49,8 @@ export function CarouselContainer() {
                                         </div>
                                     )}
                                     <img
-                                        className={`object-cover z-[-1] top-0 left-0 absolute w-full h-full rounded-[5px] ${
-                                            index != activeCarouselIndex ? "img-overlay" : ""
-                                        }`}
+                                        className={`object-cover z-[-1] top-0 left-0 absolute w-full h-full rounded-[5px] ${index != activeCarouselIndex ? "img-overlay" : ""
+                                            }`}
                                         src={`https://image.tmdb.org/t/p/original/${item?.poster_path}`}
                                         alt={`${item.title} Poster`}
                                         loading='lazy'
