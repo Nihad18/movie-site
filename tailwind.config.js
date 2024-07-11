@@ -5,6 +5,8 @@ export default {
     theme: {
         extend: {
             colors: {
+                "black":"#121212",
+                "black-alt":"#121212",
                 "gray-dark": "#6E6E6E",
                 "gray-medium": "#787878",
                 "gray-light": "#A4A4A4",
@@ -22,9 +24,11 @@ export default {
                 "gray-lightest-alt4": "#C9C9C9",
                 "gray-darker": "#4C4C4C",
                 "gray-darker-alt": "#848484",
+                "gray-darker-alt2": "#383838",
                 "green-alt": "#008F17",
                 "gray-lightest-alt5": "#BFBFBF",
                 "gray-normal-alt": "#7D7D7D",
+                "gray-normal-alt2": "#5D5D5D",
                 "gray-darkest-alt": "#6A6A6A",
                 "gray-lighter-alt5": "#D8D8D8",
             },
