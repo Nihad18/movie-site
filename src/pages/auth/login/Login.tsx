@@ -13,14 +13,16 @@ const Login = () => {
   const auth = useAuth();
 
   return (
-    <div style={{ backgroundImage: "url(/bg-cover.png)" }} className={styles.login}>
+    <div className={styles.login}>
       <div className={`${styles.wrapper}`}>
         <h2 className={`text-black ${styles.title} mb-5`}>Login</h2>
         <Formik
           initialValues={initialValues}
           onSubmit={(values, actions) => {
-            auth?.loginAction(values);
-            actions.setSubmitting(false);
+            setTimeout(() => {
+              auth?.loginAction(values);
+              actions.setSubmitting(false);
+            }, 3000)
           }}
           validationSchema={LoginSchema}
         >
@@ -28,7 +30,23 @@ const Login = () => {
             <form className="grid gap-y-5" onSubmit={props.handleSubmit} noValidate>
               <Input name="email" type="email" id="email" placeholder="Email" />
               <Input name="password" type="password" id="password" placeholder="Password" />
-              <Button type="submit" disabled={props.isSubmitting}>Sign In</Button>
+              <div className="relative">
+                <Button className="w-full" type="submit" disabled={props.isSubmitting}>
+                  <span className={`${props.isSubmitting ? "hidden" : "block"}`}>Login</span>
+                </Button>
+                <div className={`${styles["spinner-container"]} ${props.isSubmitting ? "block" : "hidden"} grid place-items-center`}>
+                  <div className={styles["dot-spinner"]}>
+                    <div className={styles["dot-spinner__dot"]}></div>
+                    <div className={styles["dot-spinner__dot"]}></div>
+                    <div className={styles["dot-spinner__dot"]}></div>
+                    <div className={styles["dot-spinner__dot"]}></div>
+                    <div className={styles["dot-spinner__dot"]}></div>
+                    <div className={styles["dot-spinner__dot"]}></div>
+                    <div className={styles["dot-spinner__dot"]}></div>
+                    <div className={styles["dot-spinner__dot"]}></div>
+                  </div>
+                </div>
+              </div>
             </form>
           )}
         </Formik>

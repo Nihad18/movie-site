@@ -1,0 +1,19 @@
+@tailwind components;
+
+@layer components {
+    .bg-image {
+        @apply h-screen relative bg-cover overflow-hidden;
+    }
+}
+
+.bg-image {
+    &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: #000000ce;
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+    }
+}

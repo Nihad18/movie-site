@@ -37,9 +37,8 @@ export function CarouselContainer() {
                     {data?.data?.results?.map((item: any, index: any) => (
                         <CarouselItem key={index} id={`${index}`}>
                             <Card
-                                className={`mx-[23px] cursor-pointer relative transition-[width,height] duration-300 overflow-hidden ${
-                                    index == activeCarouselIndex ? "w-[287px] h-[383px]" : "w-[124px] h-[179px]"
-                                }`}
+                                className={`mx-[23px] cursor-pointer relative transition-[width,height] duration-300 overflow-hidden ${index == activeCarouselIndex ? "w-[287px] h-[383px]" : "w-[124px] h-[179px]"
+                                    }`}
                             >
                                 <CardContent className='flex flex-col items-center justify-end w-full h-full aspect-square'>
                                     {index == activeCarouselIndex && (
