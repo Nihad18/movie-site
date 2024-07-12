@@ -3,6 +3,14 @@ export type LoginData = {
     password: string;
 };
 
+export type RegisterData = {
+    name: string;
+    surname: string;
+    email: string;
+    dateOfBirth: string;
+    password: string;
+};
+
 export type AuthContextType = {
     token: string;
     user: any;
