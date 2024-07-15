@@ -1,5 +1,23 @@
 @import "../../styles/partials/variables.scss";
 @import "../../styles/partials/mixin.scss";
+@tailwind components;
 
-.footer {
+@layer components {
+    .bottom-side {
+        @apply border-t border-t-[#414141] border-solid py-5 font-light text-[14px] text-[#676767];
+    }
+    .top-side {
+        @apply flex justify-between mb-[46.5px];
+    }
+}
+
+.links-title {
+    font-weight: 500;
+    margin-bottom: 34px;
+}
+
+.link {
+    font-weight: 300;
+    font-size: 15px;
+    letter-spacing: 0.1px;
 }
