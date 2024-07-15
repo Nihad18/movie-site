@@ -2,7 +2,15 @@ import { useContext } from "react";
 import { DataContext } from "@/context/MainContext";
 import Img from "../../../../public/movie-poster.png";
 const SelectedSeats = () => {
-    const {selectedSeats } = useContext(DataContext);
+    const { selectedSeats, setSelectedSeats } = useContext(DataContext);
+    const handleClick = (rowId: number, seatId: number) => {
+        const selectedSeat = selectedSeats.find((item) => item.rowId === rowId && item.seatId === seatId);
+        let newSelectedSeats;
+        if (selectedSeat) {
+            newSelectedSeats = selectedSeats.filter((item) => !(item.rowId === selectedSeat.rowId && item.seatId === selectedSeat.seatId));
+            setSelectedSeats([...newSelectedSeats]);
+        }
+    };
     return (
         <div className='relative w-[708px] h-full flex items-center justify-center'>
             <img src={Img} className='absolute object-cover w-full h-full' />
@@ -18,7 +26,9 @@ const SelectedSeats = () => {
                                 {ticket.seatNumber}
                                 {" seat"}
                                 <div className='ml-[33px] mr-[34px]'>$24</div>
-                                <div>X</div>
+                                <div className='cursor-pointer' onClick={() => handleClick(ticket.rowId, ticket.seatId)}>
+                                    X
+                                </div>
                             </div>
                         ))}
                     </div>
