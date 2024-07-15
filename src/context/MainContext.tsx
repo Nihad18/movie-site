@@ -9,7 +9,7 @@ interface SelectedSeats {
 
 interface DataContextProps {
     theme: string;
-    setTheme: React.Dispatch<React.SetStateAction<"dark" | "light">>;
+    changeTheme: () => void
 
     activeCarouselIndex: number;
     setActiveCarouselIndex: React.Dispatch<React.SetStateAction<number>>;
@@ -30,19 +30,19 @@ interface DataProviderProps {
 
 export const DataContext = createContext<DataContextProps>({
     theme: "light",
-    setTheme: () => {},
+    changeTheme: () => { },
 
     activeCarouselIndex: 1,
-    setActiveCarouselIndex: () => {},
+    setActiveCarouselIndex: () => { },
 
     activeDate: 0,
-    setActiveDate: () => {},
+    setActiveDate: () => { },
 
     activeTime: "",
-    setActiveTime: () => {},
+    setActiveTime: () => { },
 
     selectedSeats: [],
-    setSelectedSeats: () => {},
+    setSelectedSeats: () => { },
 });
 
 export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
@@ -51,11 +51,15 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
     const [activeDate, setActiveDate] = useState<number>(0);
     const [activeTime, setActiveTime] = useState<string>("");
     const [selectedSeats, setSelectedSeats] = useState<SelectedSeats[]>([]);
+    const changeTheme = () => {
+        setTheme(prev => prev == "dark" ? "light" : "dark")
+        localStorage.setItem("theme", theme == "light" ? "dark" : "light");
+    }
     return (
         <DataContext.Provider
             value={{
                 theme,
-                setTheme,
+                changeTheme,
                 activeCarouselIndex,
                 setActiveCarouselIndex,
                 activeDate,
