@@ -54,7 +54,7 @@ export function CarouselContainer() {
                                     <LazyLoadImage
                                         alt={`${item?.title || item?.name} Poster`}
                                         effect='blur'
-                                        src={`https://image.tmdb.org/t/p/original/${item?.backdrop_path}`}
+                                        src={`https://image.tmdb.org/t/p/original/${item?.poster_path}`}
                                         placeholderSrc='placeholder.jpg'
                                         wrapperClassName={`carousel-card-image`}
                                     />

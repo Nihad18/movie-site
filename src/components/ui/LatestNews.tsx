@@ -33,7 +33,7 @@ const LatestNews = () => {
         },
     ];
     return (
-        <section className='dark:bg-black-alt pt-[110px] pb-[101px]'>
+        <section className='pb-[101px]'>
             <div className='sub-container '>
                 <div className='text-[25px] font-medium text-gray-darker-alt2 dark:text-white '>Latest news</div>
                 <div className='flex mt-[50px] items-center justify-between'>
@@ -42,7 +42,7 @@ const LatestNews = () => {
                             <div className="text-[20px] font-semibold text-white w-[314px] pb-[22px]">{arr[0].title}</div>
                             <div className="text-[15px] font-medium text-gray-lighter-alt5 w-[471px] pb-[52px]">{arr[0].desc}</div>
                         </div>
-                        <img src={arr[0].img} className='absolute top-0 left-0 w-full h-full z-[1]' />
+                        <img src={arr[0].img} className='absolute top-0 left-0 w-full h-full rounded-[5px] z-[1]' />
                     </div>
                     <div className='w-[472.3px] h-[400px]'>
                         {arr.slice(0, 4).map((item, index) => {
