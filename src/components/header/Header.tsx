@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 
 const Header = () => {
-  const { theme, setTheme } = useContext(DataContext)
+  const { theme, changeTheme } = useContext(DataContext)
   const user = useAuth();
   return (
     <header className={`${styles.header}`}>
@@ -16,7 +16,7 @@ const Header = () => {
           </Link>
           <div className="flex items-center gap-[34px]">
             <label className={styles["switch"]}>
-              <input type="checkbox" checked={theme == "dark"} onChange={() => setTheme(prev => prev == "dark" ? "light" : "dark")} />
+              <input type="checkbox" checked={theme == "dark"} onChange={changeTheme} />
               <span className={styles.slider}></span>
             </label>
             {
