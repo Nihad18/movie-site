@@ -1,61 +1,118 @@
 import { useState, useContext } from "react";
 import { DataContext } from "@/context/MainContext";
 import { SeatStatus } from "@/enums/SeatStatus";
-
+import Light from "../../../../public/LIGHT.svg";
 const seatData = [
     {
         rowId: 1,
-        row: "A",
+        row: "G",
         seats: [
             { seatId: 1, seatNumber: 1, status: "available" },
             { seatId: 2, seatNumber: 2, status: "booked" },
-            { seatId: 3, seatNumber: 3, status: "booked" },
+            { seatId: 3, seatNumber: 3, status: "available" },
             { seatId: 4, seatNumber: 4, status: "available" },
+            { seatId: 5, seatNumber: 5, status: "booked" },
+            { seatId: 6, seatNumber: 6, status: "available" },
         ],
     },
     {
         rowId: 2,
-        row: "B",
+        row: "F",
         seats: [
-            { seatId: 5, seatNumber: 1, status: "booked" },
-            { seatId: 6, seatNumber: 2, status: "booked" },
-            { seatId: 7, seatNumber: 3, status: "available" },
-            { seatId: 8, seatNumber: 4, status: "available" },
-            { seatId: 9, seatNumber: 5, status: "available" },
-            { seatId: 10, seatNumber: 6, status: "available" },
+            { seatId: 7, seatNumber: 1, status: "booked" },
+            { seatId: 8, seatNumber: 2, status: "booked" },
+            { seatId: 9, seatNumber: 3, status: "available" },
+            { seatId: 10, seatNumber: 4, status: "available" },
+            { seatId: 11, seatNumber: 5, status: "booked" },
+            { seatId: 12, seatNumber: 6, status: "available" },
+            { seatId: 13, seatNumber: 7, status: "available" },
+            { seatId: 14, seatNumber: 8, status: "booked" },
         ],
     },
     {
         rowId: 3,
-        row: "C",
+        row: "E",
         seats: [
-            { seatId: 11, seatNumber: 1, status: "booked" },
-            { seatId: 12, seatNumber: 2, status: "booked" },
-            { seatId: 13, seatNumber: 3, status: "booked" },
-            { seatId: 14, seatNumber: 4, status: "available" },
-            { seatId: 15, seatNumber: 5, status: "available" },
-            { seatId: 16, seatNumber: 6, status: "available" },
-            { seatId: 17, seatNumber: 7, status: "available" },
-            { seatId: 18, seatNumber: 8, status: "available" },
+            { seatId: 15, seatNumber: 1, status: "booked" },
+            { seatId: 16, seatNumber: 2, status: "booked" },
+            { seatId: 17, seatNumber: 3, status: "booked" },
+            { seatId: 18, seatNumber: 4, status: "booked" },
+            { seatId: 19, seatNumber: 5, status: "booked" },
+            { seatId: 20, seatNumber: 6, status: "available" },
+            { seatId: 21, seatNumber: 7, status: "available" },
+            { seatId: 22, seatNumber: 8, status: "available" },
+            { seatId: 23, seatNumber: 9, status: "available" },
+            { seatId: 24, seatNumber: 10, status: "available" },
         ],
     },
     {
         rowId: 4,
         row: "D",
         seats: [
-            { seatId: 19, seatNumber: 1, status: "available" },
-            { seatId: 20, seatNumber: 2, status: "booked" },
-            { seatId: 21, seatNumber: 3, status: "available" },
-            { seatId: 22, seatNumber: 4, status: "booked" },
-            { seatId: 23, seatNumber: 5, status: "available" },
-            { seatId: 24, seatNumber: 6, status: "booked" },
-            { seatId: 25, seatNumber: 7, status: "available" },
-            { seatId: 26, seatNumber: 8, status: "booked" },
-            { seatId: 27, seatNumber: 9, status: "available" },
-            { seatId: 28, seatNumber: 10, status: "booked" },
+            { seatId: 25, seatNumber: 1, status: "available" },
+            { seatId: 26, seatNumber: 2, status: "booked" },
+            { seatId: 27, seatNumber: 3, status: "available" },
+            { seatId: 28, seatNumber: 4, status: "booked" },
+            { seatId: 29, seatNumber: 5, status: "available" },
+            { seatId: 30, seatNumber: 6, status: "booked" },
+            { seatId: 31, seatNumber: 7, status: "available" },
+            { seatId: 32, seatNumber: 8, status: "booked" },
+            { seatId: 33, seatNumber: 9, status: "available" },
+            { seatId: 34, seatNumber: 10, status: "booked" },
+        ],
+    },
+    {
+        rowId: 5,
+        row: "C",
+        seats: [
+            { seatId: 35, seatNumber: 1, status: "available" },
+            { seatId: 36, seatNumber: 2, status: "booked" },
+            { seatId: 37, seatNumber: 3, status: "available" },
+            { seatId: 38, seatNumber: 4, status: "booked" },
+            { seatId: 39, seatNumber: 5, status: "available" },
+            { seatId: 40, seatNumber: 6, status: "booked" },
+            { seatId: 41, seatNumber: 7, status: "available" },
+            { seatId: 42, seatNumber: 8, status: "booked" },
+            { seatId: 43, seatNumber: 9, status: "available" },
+            { seatId: 44, seatNumber: 10, status: "booked" },
+        ],
+    },
+    {
+        rowId: 6,
+        row: "B",
+        seats: [
+            { seatId: 45, seatNumber: 1, status: "available" },
+            { seatId: 46, seatNumber: 2, status: "booked" },
+            { seatId: 47, seatNumber: 3, status: "available" },
+            { seatId: 48, seatNumber: 4, status: "booked" },
+            { seatId: 49, seatNumber: 5, status: "available" },
+            { seatId: 50, seatNumber: 6, status: "booked" },
+            { seatId: 51, seatNumber: 7, status: "available" },
+            { seatId: 52, seatNumber: 8, status: "booked" },
+            { seatId: 53, seatNumber: 9, status: "available" },
+            { seatId: 54, seatNumber: 10, status: "booked" },
+        ],
+    },
+    {
+        rowId: 7,
+        row: "A",
+        seats: [
+            { seatId: 55, seatNumber: 1, status: "available" },
+            { seatId: 56, seatNumber: 2, status: "booked" },
+            { seatId: 57, seatNumber: 3, status: "available" },
+            { seatId: 58, seatNumber: 4, status: "booked" },
+            { seatId: 59, seatNumber: 5, status: "available" },
+            { seatId: 60, seatNumber: 6, status: "booked" },
+            { seatId: 61, seatNumber: 7, status: "available" },
+            { seatId: 62, seatNumber: 8, status: "booked" },
+            { seatId: 63, seatNumber: 9, status: "available" },
+            { seatId: 64, seatNumber: 10, status: "booked" },
+            { seatId: 65, seatNumber: 10, status: "booked" },
+            { seatId: 66, seatNumber: 10, status: "booked" },
         ],
     },
 ];
+
 const dates = [21, 22, 23, 24, 25, 26, 27];
 const times = ["13:15", "15:15", "18:15", "20:30", "22:30"];
 
@@ -74,12 +131,11 @@ const SeatSelection = () => {
             setSelectedSeats([...selectedSeats, newSelectedSeat]);
         } else if (selectedSeat.status == SeatStatus.selected) {
             selectedSeat.status = SeatStatus.available;
-            const newSelectedSeats = selectedSeats.filter((item: any) => item.rowId !== selectedRow.rowId && item.seatId !== selectedSeat.seatId);
+            const newSelectedSeats = selectedSeats.filter((item: any) =>  !(item.rowId === selectedRow.rowId && item.seatId === selectedSeat.seatId));
             setSelectedSeats([...newSelectedSeats]);
         }
         setSeats([...newSeats]);
     };
-    // console.log("date : ", activeDate, "\ntime : ", activeTime, "\n selected seats", selectedSeats);
     return (
         <div className='flex-1 h-full overflow-x-hidden '>
             <div>
@@ -120,30 +176,50 @@ const SeatSelection = () => {
                 </div>
             </div>
 
-            <div className='w-[447px] h-[1px] bg-[#525252] mx-auto mt-[52px] mb-[46px]'></div>
-            {seats?.map((row, rowIndex) => (
-                <div className='flex items-center justify-center py-2' key={rowIndex}>
-                    <span className='pr-2 text-white'>{row.row}</span>
-                    <div className='flex justify-center'>
-                        {row.seats.map((seat, seatIndex) => (
-                            <div
-                                key={seatIndex}
-                                onClick={() => handleSeatSelection(rowIndex, seatIndex)}
-                                className={`${
-                                    seat.status == SeatStatus.booked
-                                        ? "cursor-not-allowed bg-slate-600"
-                                        : seat.status == SeatStatus.available
-                                        ? "cursor-pointer bg-slate-300"
-                                        : "cursor-pointer bg-red-500"
-                                }
-                                flex items-center justify-center w-[19px] h-[19px] mx-1 rounded-full`}
-                            >
-                            </div>
-                        ))}
-                    </div>
-                    <span className='pl-2 text-white'>{row.row}</span>
+            <div className='w-[638px] h-[1px] bg-[#525252] mx-auto mt-[52px] mb-[104px]'></div>
+
+            <div className='relative'>
+                <div className='absolute top-[-25%] left-[50%] translate-x-[-50%]'>
+                    <img src={Light} alt='light' />
                 </div>
-            ))}
+                {seats?.map((row, rowIndex) => (
+                    <div className='relative flex items-center justify-center py-2 ' key={rowIndex}>
+                        <span className='pr-2 text-white'>{row.row}</span>
+                        <div className='flex justify-center w-[340px]'>
+                            {row.seats.map((seat, seatIndex) => (
+                                <div
+                                    key={seatIndex}
+                                    onClick={() => handleSeatSelection(rowIndex, seatIndex)}
+                                    className={`${
+                                        seat.status == SeatStatus.booked
+                                            ? "cursor-not-allowed bg-slate-600"
+                                            : seat.status == SeatStatus.available
+                                            ? "cursor-pointer bg-slate-300"
+                                            : "cursor-pointer bg-[#8D090D]"
+                                    }
+                                flex items-center justify-center w-[19px] h-[19px] mx-1 rounded-full`}
+                                ></div>
+                            ))}
+                        </div>
+                        <span className='pl-2 text-[#4A4A4A]'>{row.row}</span>
+                    </div>
+                ))}
+            </div>
+
+            <div className='flex justify-center text-white text-[15px] mt-[36px] mb-[127px]'>
+                <div className='flex items-center mr-[25.26px]'>
+                    <div className='w-4 h-4 mr-[12.63px] rounded-full bg-[#A4A4A4]'></div>
+                    <div>Available</div>
+                </div>
+                <div className='flex items-center mr-[25.26px]'>
+                    <div className='w-4 h-4 mr-[12.63px] rounded-full bg-[#393939]'></div>
+                    <div>Booked</div>
+                </div>
+                <div className='flex items-center'>
+                    <div className='w-4 h-4 mr-[12.63px] rounded-full bg-[#8D090D]'></div>
+                    <div>Selected</div>
+                </div>
+            </div>
         </div>
     );
 };
