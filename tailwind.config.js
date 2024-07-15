@@ -47,6 +47,13 @@ export default {
                 fadeIn: "fadeIn 0.5s ease-in-out",
                 slideIn: "slideIn 0.5s ease-in-out",
             },
+            backgroundImage: {
+                "card-gradient": "linear-gradient(180deg, rgba(29, 29, 29, 0) 15.78%, rgba(29, 29, 29, 0.78) 100%)",
+            },
+            boxShadow: {
+                "about-us-light": "5px 5px 20px 0 hsla(0, 0%, 0%, 0.1);",
+                "about-us-dark": "8px 8px 20px 0 hsla(0, 0%, 0%, 1);",
+            },
         },
     },
     plugins: [],

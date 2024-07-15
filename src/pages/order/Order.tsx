@@ -3,7 +3,7 @@ import SelectedSeats from "@/components/ui/order/SelectedSeats";
 
 const Order = () => {
     return (
-        <div className='flex w-[100vw] h-[100vh] bg-[#121212]'>
+        <div className='flex w-[100vw] h-[100vh] bg-black'>
             <SelectedSeats />
             <SeatSelection />
         </div>
