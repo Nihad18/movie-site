@@ -13,10 +13,10 @@ const Timeline = () => {
         setSelectedTime(time);
     };
     return (
-        <div className='dark:bg-black-alt pt-[110px] pb-[82px]'>
+        <div className='pt-[110px] pb-[82px]'>
             <div className='container'>
                 <div className='text-gray-darker-alt2 dark:text-white text-[25px] font-medium pb-[23px]'>Pearls of Azerbaijani cinema</div>
-                <div className='w-[1140px] mx-auto pt-[27px] pb-[28px]'>
+                <div className='sub-container mx-auto pt-[27px] pb-[28px]'>
                     <div className={`h-[42px] flex items-center mb-[81px] ${styles.lineContainer}`}>
                         <div className={`bg-gray-lightest-alt5 dark:bg-gray-darkest-alt ${styles.line}`}></div>
                         <div
@@ -31,20 +31,18 @@ const Timeline = () => {
                                 onClick={() => handleMarkerClick(time)}
                             >
                                 <div
-                                    className={`${
-                                        time == selectedTime
+                                    className={`${time == selectedTime
                                             ? `text-black dark:text-white ${styles.activeMarkerLabel}`
                                             : `text-gray-lightest-alt5 dark:text-gray-normal-alt ${styles.markerLabel}`
-                                    }`}
+                                        }`}
                                 >
                                     {time}
                                 </div>
                                 <div
-                                    className={`${
-                                        time == selectedTime
+                                    className={`${time == selectedTime
                                             ? `bg-black dark:bg-white  ${styles.activeMarker}`
                                             : `bg-gray-lightest-alt5 dark:bg-gray-normal-alt"  ${styles.marker}`
-                                    }`}
+                                        }`}
                                 ></div>
                             </div>
                         ))}
