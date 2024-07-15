@@ -7,7 +7,7 @@ import { DataContext } from "@/context/MainContext"
 const HomeLayout = () => {
     const { theme } = useContext(DataContext)
     return (
-        <div className={`relative ${theme == "dark" ? "dark" : ""}`}>
+        <div className={`relative ${theme == "dark" ? "dark bg-black text-white" : "text-black"}`}>
             <Header />
             <main >
                 <Outlet />
