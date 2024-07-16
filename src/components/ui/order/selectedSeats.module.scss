@@ -4,6 +4,7 @@
     &::-webkit-scrollbar {
         background-color: $black;
         width: 8px;
+        border-radius: 4px;
     }
     &::-webkit-scrollbar-thumb {
         background-color: $red;
