@@ -10,7 +10,7 @@ import MovieService from "@/services/MovieService";
 
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { Button } from "./Button";
+import { Link } from "react-router-dom";
 
 export function CarouselContainer() {
     const { activeCarouselIndex } = useContext(DataContext);
@@ -45,9 +45,9 @@ export function CarouselContainer() {
                                         <div className='mb-[27px] text-center animate-slideIn delay-[400ms] z-[2]'>
                                             <div className='text-[20px] text-white text-center mb-[13px]'>{item.title || item.name}</div>
                                             <div>
-                                                <Button className=' h-[36px] w-[123px] px-[25px] py-[8px] rounded-[5px] text-white bg-primary'>
+                                                <Link to="/order" className='h-[36px] w-[123px] px-[25px] py-[8px] rounded-[5px] text-white bg-primary'>
                                                     Book now
-                                                </Button>
+                                                </Link>
                                             </div>
                                         </div>
                                     )}

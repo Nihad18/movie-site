@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import FilmCard from "./filmCard/FilmCard";
-import { FilmListData } from "@/types/filmDataTypes";
+import { FilmDataType } from "@/types/filmDataTypes";
+
 interface SeeMoreProps {
     name: string;
     link: string
-    data: FilmListData[]
+    data: FilmDataType | undefined
 }
 
 const SeeMore: React.FC<SeeMoreProps> = ({ name, link, data }) => {
@@ -24,7 +25,7 @@ const SeeMore: React.FC<SeeMoreProps> = ({ name, link, data }) => {
                 </div>
                 <div className="flex gap-[26px]">
                     {
-                        data.map((film, index) => (
+                        data?.results.slice(0, 4).map((film, index) => (
                             <FilmCard key={index} {...film} />
                         ))
                     }
