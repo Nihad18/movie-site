@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from "axios";
 
 export class HttpClient {
     static apiToken = import.meta.env.VITE_TMDB_API_TOKEN;
@@ -7,9 +7,8 @@ export class HttpClient {
     static async get<T>(path: string): Promise<AxiosResponse<T>> {
         return axios.get<T>(`${this.baseURL}${path}`, {
             headers: {
-                'Authorization': `Bearer ${this.apiToken}`
-            }
+                Authorization: `Bearer ${this.apiToken}`,
+            },
         });
     }
 }
-
