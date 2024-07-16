@@ -12,15 +12,21 @@ const MovieList = () => {
     useEffect(() => {
         if (slug && !acceptedRoutes.includes(slug)) navigate("/not-found");
     }, [slug]);
-    console.log(data?.data?.results);
+    const slugConvertor = (slug: string) => {
+        const words = slug.split("-");
+        let firstWord = words.shift() ?? "";
+        const capitalizedFirstWord = firstWord[0].toUpperCase() + firstWord.slice(1).toLowerCase();
+        const result = capitalizedFirstWord + " " + words.map((word) => word.toLowerCase()).join(" ");
+        return result;
+    };
     return (
-        <div className='pt pt-[87px]'>
+        <div className='pt pt-[86px] pb-[100px]'>
             <div className='container '>
-                <div className='flex justify-between items-end mb-[49px]'>
-                    <h3 className='text-[25px] leading-normal font-medium'>{slug}</h3>
+                <div className='flex justify-between items-end mb-[50px]'>
+                    <h3 className='text-[25px] leading-normal font-medium'>{slugConvertor(slug ?? "")}</h3>
                 </div>
-                <div className='flex flex-wrap gap-[26px]'>
-                    {Array.isArray(data) && data?.data?.results?.map((film:any, index:string) => <FilmCard key={index} {...film} />)}
+                <div className='grid grid-cols-4 gap-x-[25px] gap-y-[61px]'>
+                    {Array.isArray(data?.data?.results) && data?.data?.results?.map((film: any, index: string) => <FilmCard key={index} {...film} />)}
                 </div>
             </div>
         </div>
