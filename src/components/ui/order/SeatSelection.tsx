@@ -59,14 +59,14 @@ const seatData = [
             { seatId: 32, seatNumber: 8, status: "booked" },
             { seatId: 33, seatNumber: 9, status: "available" },
             { seatId: 34, seatNumber: 10, status: "booked" },
+            { seatId: 35, seatNumber: 10, status: "booked" },
+            { seatId: 36, seatNumber: 10, status: "booked" },
         ],
     },
     {
         rowId: 5,
         row: "C",
         seats: [
-            { seatId: 35, seatNumber: 1, status: "available" },
-            { seatId: 36, seatNumber: 2, status: "booked" },
             { seatId: 37, seatNumber: 3, status: "available" },
             { seatId: 38, seatNumber: 4, status: "booked" },
             { seatId: 39, seatNumber: 5, status: "available" },
@@ -75,40 +75,46 @@ const seatData = [
             { seatId: 42, seatNumber: 8, status: "booked" },
             { seatId: 43, seatNumber: 9, status: "available" },
             { seatId: 44, seatNumber: 10, status: "booked" },
+            { seatId: 45, seatNumber: 10, status: "booked" },
+            { seatId: 46, seatNumber: 10, status: "booked" },
+            { seatId: 47, seatNumber: 10, status: "booked" },
+            { seatId: 48, seatNumber: 10, status: "booked" },
         ],
     },
     {
         rowId: 6,
         row: "B",
         seats: [
-            { seatId: 45, seatNumber: 1, status: "available" },
-            { seatId: 46, seatNumber: 2, status: "booked" },
-            { seatId: 47, seatNumber: 3, status: "available" },
-            { seatId: 48, seatNumber: 4, status: "booked" },
             { seatId: 49, seatNumber: 5, status: "available" },
             { seatId: 50, seatNumber: 6, status: "booked" },
             { seatId: 51, seatNumber: 7, status: "available" },
             { seatId: 52, seatNumber: 8, status: "booked" },
             { seatId: 53, seatNumber: 9, status: "available" },
             { seatId: 54, seatNumber: 10, status: "booked" },
+            { seatId: 55, seatNumber: 10, status: "booked" },
+            { seatId: 56, seatNumber: 10, status: "booked" },
+            { seatId: 57, seatNumber: 10, status: "booked" },
+            { seatId: 58, seatNumber: 10, status: "booked" },
+            { seatId: 59, seatNumber: 10, status: "booked" },
+            { seatId: 60, seatNumber: 10, status: "booked" },
         ],
     },
     {
         rowId: 7,
         row: "A",
         seats: [
-            { seatId: 55, seatNumber: 1, status: "available" },
-            { seatId: 56, seatNumber: 2, status: "booked" },
-            { seatId: 57, seatNumber: 3, status: "available" },
-            { seatId: 58, seatNumber: 4, status: "booked" },
-            { seatId: 59, seatNumber: 5, status: "available" },
-            { seatId: 60, seatNumber: 6, status: "booked" },
             { seatId: 61, seatNumber: 7, status: "available" },
             { seatId: 62, seatNumber: 8, status: "booked" },
             { seatId: 63, seatNumber: 9, status: "available" },
             { seatId: 64, seatNumber: 10, status: "booked" },
             { seatId: 65, seatNumber: 10, status: "booked" },
             { seatId: 66, seatNumber: 10, status: "booked" },
+            { seatId: 67, seatNumber: 10, status: "booked" },
+            { seatId: 68, seatNumber: 10, status: "booked" },
+            { seatId: 69, seatNumber: 10, status: "booked" },
+            { seatId: 70, seatNumber: 10, status: "booked" },
+            { seatId: 71, seatNumber: 10, status: "booked" },
+            { seatId: 72, seatNumber: 10, status: "booked" },
         ],
     },
 ];
@@ -131,7 +137,7 @@ const SeatSelection = () => {
             setSelectedSeats([...selectedSeats, newSelectedSeat]);
         } else if (selectedSeat.status == SeatStatus.selected) {
             selectedSeat.status = SeatStatus.available;
-            const newSelectedSeats = selectedSeats.filter((item: any) =>  !(item.rowId === selectedRow.rowId && item.seatId === selectedSeat.seatId));
+            const newSelectedSeats = selectedSeats.filter((item: any) => !(item.rowId === selectedRow.rowId && item.seatId === selectedSeat.seatId));
             setSelectedSeats([...newSelectedSeats]);
         }
         setSeats([...newSeats]);
@@ -146,7 +152,7 @@ const SeatSelection = () => {
                             key={index}
                             onClick={() => setActiveDate(date)}
                             className={`${
-                                date == activeDate ? "bg-[#C4C4C4]" : "bg-slate-800"
+                                date == activeDate ? "bg-gray-lightest-alt" : "bg-gray-darker-alt3"
                             } w-[40px] h-[58px] rounded-[30px] text-white cursor-pointer
                          flex items-center justify-center mr-[23px] last:mr-0`}
                         >
@@ -156,7 +162,7 @@ const SeatSelection = () => {
                 </div>
             </div>
 
-            <div className='w-[447px] h-[1px] bg-[#525252] mx-auto mt-[52px] mb-[46px]'></div>
+            <div className='w-[447px] h-[1px] bg-gray-darkest-alt2 mx-auto mt-[52px] mb-[46px]'></div>
 
             <div>
                 <div className='text-center text-white text-[25px] pb-[34px]'>Time</div>
@@ -166,7 +172,7 @@ const SeatSelection = () => {
                             key={index}
                             onClick={() => setActiveTime(time)}
                             className={`${
-                                time == activeTime ? "bg-[#C4C4C4]" : "bg-slate-800"
+                                time == activeTime ? "bg-gray-lightest-alt" : "bg-gray-darker-alt3"
                             } w-[107px] h-[42px] rounded-[30px] text-white cursor-pointer
                          flex items-center justify-center mr-[23px] last:mr-0`}
                         >
@@ -176,47 +182,47 @@ const SeatSelection = () => {
                 </div>
             </div>
 
-            <div className='w-[638px] h-[1px] bg-[#525252] mx-auto mt-[52px] mb-[104px]'></div>
+            <div className='w-[638px] h-[1px] bg-gray-darkest-alt2 mx-auto mt-[52px] mb-[104px]'></div>
 
             <div className='relative'>
                 <div className='absolute top-[-25%] left-[50%] translate-x-[-50%]'>
                     <img src={Light} alt='light' />
                 </div>
                 {seats?.map((row, rowIndex) => (
-                    <div className='relative flex items-center justify-center py-2 ' key={rowIndex}>
+                    <div className='relative flex items-center justify-center my-[5.5px]' key={rowIndex}>
                         <span className='pr-2 text-white'>{row.row}</span>
-                        <div className='flex justify-center w-[340px]'>
+                        <div className='flex justify-center w-[380px]'>
                             {row.seats.map((seat, seatIndex) => (
                                 <div
                                     key={seatIndex}
                                     onClick={() => handleSeatSelection(rowIndex, seatIndex)}
                                     className={`${
                                         seat.status == SeatStatus.booked
-                                            ? "cursor-not-allowed bg-slate-600"
+                                            ? "cursor-not-allowed bg-gray-darker-alt4"
                                             : seat.status == SeatStatus.available
-                                            ? "cursor-pointer bg-slate-300"
-                                            : "cursor-pointer bg-[#8D090D]"
+                                            ? "cursor-pointer bg-gray-light"
+                                            : "cursor-pointer bg-red"
                                     }
-                                flex items-center justify-center w-[19px] h-[19px] mx-1 rounded-full`}
+                                flex flex-shrink-0 items-center justify-center w-[19px] h-[19px] mx-[6px] rounded-full`}
                                 ></div>
                             ))}
                         </div>
-                        <span className='pl-2 text-[#4A4A4A]'>{row.row}</span>
+                        <span className='pl-2 text-gray-light2'>{row.row}</span>
                     </div>
                 ))}
             </div>
 
             <div className='flex justify-center text-white text-[15px] mt-[36px] mb-[127px]'>
                 <div className='flex items-center mr-[25.26px]'>
-                    <div className='w-4 h-4 mr-[12.63px] rounded-full bg-[#A4A4A4]'></div>
+                    <div className='w-4 h-4 mr-[12.63px] rounded-full bg-gray-light'></div>
                     <div>Available</div>
                 </div>
                 <div className='flex items-center mr-[25.26px]'>
-                    <div className='w-4 h-4 mr-[12.63px] rounded-full bg-[#393939]'></div>
+                    <div className='w-4 h-4 mr-[12.63px] rounded-full bg-gray-darker-alt4'></div>
                     <div>Booked</div>
                 </div>
                 <div className='flex items-center'>
-                    <div className='w-4 h-4 mr-[12.63px] rounded-full bg-[#8D090D]'></div>
+                    <div className='w-4 h-4 mr-[12.63px] rounded-full bg-red'></div>
                     <div>Selected</div>
                 </div>
             </div>
