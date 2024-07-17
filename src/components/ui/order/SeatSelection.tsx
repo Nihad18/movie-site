@@ -1,26 +1,19 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { DataContext } from "@/context/MainContext";
 import { SeatStatus } from "@/enums/SeatStatus";
-import { dates, seatData, times } from "@/lib/utils";
-
+import { dates, times } from "@/lib/utils";
 
 const SeatSelection = () => {
-    const [seats, setSeats] = useState(seatData);
-    const { activeDate, setActiveDate, activeTime, setActiveTime, selectedSeats, setSelectedSeats } = useContext(DataContext);
+    const { activeDate, setActiveDate, activeTime, setActiveTime, seats, setSeats } = useContext(DataContext);
 
     const handleSeatSelection = (rowIndex: number, seatIndex: number) => {
         const newSeats = [...seats];
-        const selectedSeat = seatData[rowIndex].seats[seatIndex];
-        const selectedRow = seatData[rowIndex];
-        const newSelectedSeat = { rowId: selectedRow.rowId, seatId: selectedSeat.seatId, row: selectedRow.row, seatNumber: selectedSeat.seatNumber };
+        const selectedSeat = newSeats[rowIndex].seats[seatIndex];
 
         if (selectedSeat.status == SeatStatus.available) {
             selectedSeat.status = SeatStatus.selected;
-            setSelectedSeats([...selectedSeats, newSelectedSeat]);
         } else if (selectedSeat.status == SeatStatus.selected) {
             selectedSeat.status = SeatStatus.available;
-            const newSelectedSeats = selectedSeats.filter((item: any) => !(item.rowId === selectedRow.rowId && item.seatId === selectedSeat.seatId));
-            setSelectedSeats([...newSelectedSeats]);
         }
         setSeats([...newSeats]);
     };
@@ -33,8 +26,9 @@ const SeatSelection = () => {
                         <div
                             key={index}
                             onClick={() => setActiveDate(date)}
-                            className={`${date == activeDate ? "bg-gray-lightest-alt" : "bg-gray-darker-alt3"
-                                } w-[40px] h-[58px] rounded-[30px] text-white cursor-pointer
+                            className={`${
+                                date == activeDate ? "bg-gray-lightest-alt" : "bg-gray-darker-alt3"
+                            } w-[40px] h-[58px] rounded-[30px] text-white cursor-pointer
                          flex items-center justify-center mr-[23px] last:mr-0`}
                         >
                             {date}
@@ -52,8 +46,9 @@ const SeatSelection = () => {
                         <div
                             key={index}
                             onClick={() => setActiveTime(time)}
-                            className={`${time == activeTime ? "bg-gray-lightest-alt" : "bg-gray-darker-alt3"
-                                } w-[107px] h-[42px] rounded-[30px] text-white cursor-pointer
+                            className={`${
+                                time == activeTime ? "bg-gray-lightest-alt" : "bg-gray-darker-alt3"
+                            } w-[107px] h-[42px] rounded-[30px] text-white cursor-pointer
                          flex items-center justify-center mr-[23px] last:mr-0`}
                         >
                             {time}
@@ -66,22 +61,23 @@ const SeatSelection = () => {
 
             <div className='relative'>
                 <div className='absolute top-[-25%] left-[50%] translate-x-[-50%]'>
-                    <img src="/LIGHT.svg" alt='light' />
+                    <img src='/LIGHT.svg' alt='light' />
                 </div>
                 {seats?.map((row, rowIndex) => (
                     <div className='relative flex items-center justify-center my-[5.5px]' key={rowIndex}>
                         <span className='pr-2 text-white'>{row.row}</span>
                         <div className='flex justify-center w-[380px]'>
-                            {row.seats.map((seat, seatIndex) => (
+                            {row.seats.map((seat:any, seatIndex:any) => (
                                 <div
                                     key={seatIndex}
                                     onClick={() => handleSeatSelection(rowIndex, seatIndex)}
-                                    className={`${seat.status == SeatStatus.booked
-                                        ? "cursor-not-allowed bg-gray-darker-alt4"
-                                        : seat.status == SeatStatus.available
+                                    className={`${
+                                        seat.status == SeatStatus.booked
+                                            ? "cursor-not-allowed bg-gray-darker-alt4"
+                                            : seat.status == SeatStatus.available
                                             ? "cursor-pointer bg-gray-light"
                                             : "cursor-pointer bg-primary-dark"
-                                        }
+                                    }
                                 flex flex-shrink-0 items-center justify-center w-[19px] h-[19px] mx-[6px] rounded-full`}
                                 ></div>
                             ))}
