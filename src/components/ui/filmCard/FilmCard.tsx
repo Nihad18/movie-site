@@ -1,4 +1,4 @@
-import { LazyLoadImage } from "react-lazy-load-image-component"
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import styles from "./filmCard.module.scss";
 import React from "react";
 import { FilmResultType } from "@/types/filmDataTypes";
@@ -6,19 +6,18 @@ import { filmDate } from "@/lib/utils";
 import { Link } from "react-router-dom";
 
 const FilmCard: React.FC<FilmResultType> = ({ name, title, poster_path, first_air_date, release_date, adult, original_language }) => {
-
     return (
-        <Link to="/order" className={styles.card} >
+        <Link to='/order' className={styles.card}>
             <LazyLoadImage
                 alt={`${name || title} Poster`}
                 effect='blur'
                 src={`https://image.tmdb.org/t/p/original/${poster_path}`}
-                className="w-full h-full"
+                className='h-full w-full'
             />
             <div className={styles.details}>
                 <h4 className={styles.name}>{name || title}</h4>
                 <p className={styles.date}>{filmDate(release_date || first_air_date)}</p>
-                <p className={styles['age-limit']}>{adult ? "18+" : "6+"}</p>
+                <p className={styles["age-limit"]}>{adult ? "18+" : "6+"}</p>
                 <div className={styles.languages}>
                     {/* {languages.map((language, index) => (
                         <div key={index} className={styles.language}>{language.lang}</div>
@@ -27,7 +26,7 @@ const FilmCard: React.FC<FilmResultType> = ({ name, title, poster_path, first_ai
                 </div>
             </div>
         </Link>
-    )
-}
+    );
+};
 
-export default FilmCard
+export default FilmCard;

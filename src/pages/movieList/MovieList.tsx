@@ -20,10 +20,10 @@ const MovieList = () => {
         return result;
     };
     return (
-        <div className='pt pt-[86px] pb-[100px]'>
-            <div className='container '>
-                <div className='flex justify-between items-end mb-[50px]'>
-                    <h3 className='text-[25px] leading-normal font-medium'>{slugConvertor(slug ?? "")}</h3>
+        <div className='pt pb-[100px] pt-[86px]'>
+            <div className='container'>
+                <div className='mb-[50px] flex items-end justify-between'>
+                    <h3 className='text-[25px] font-medium leading-normal'>{slugConvertor(slug ?? "")}</h3>
                 </div>
                 <div className='grid grid-cols-4 gap-x-[25px] gap-y-[61px]'>
                     {Array.isArray(data?.data?.results) && data?.data?.results?.map((film: any, index: string) => <FilmCard key={index} {...film} />)}

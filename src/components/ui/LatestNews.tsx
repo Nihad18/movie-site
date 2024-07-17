@@ -34,26 +34,26 @@ const LatestNews = () => {
     ];
     return (
         <section className='pb-[101px]'>
-            <div className='sub-container '>
-                <div className='text-[25px] font-medium text-gray-darker-alt2 dark:text-white '>Latest news</div>
-                <div className='flex mt-[50px] items-center justify-between'>
-                    <div className='w-[558px] h-[457px] relative flex items-end pl-[35px]'>
-                        <div className='z-[2] relative'>
-                            <div className="text-[20px] font-semibold text-white w-[314px] pb-[22px]">{arr[0].title}</div>
-                            <div className="text-[15px] font-medium text-gray-lighter-alt5 w-[471px] pb-[52px]">{arr[0].desc}</div>
+            <div className='sub-container'>
+                <div className='text-[25px] font-medium text-gray-darker-alt2 dark:text-white'>Latest news</div>
+                <div className='mt-[50px] flex items-center justify-between'>
+                    <div className='relative flex h-[457px] w-[558px] items-end pl-[35px]'>
+                        <div className='relative z-[2]'>
+                            <div className='w-[314px] pb-[22px] text-[20px] font-semibold text-white'>{arr[0].title}</div>
+                            <div className='w-[471px] pb-[52px] text-[15px] font-medium text-gray-lighter-alt5'>{arr[0].desc}</div>
                         </div>
-                        <img src={arr[0].img} className='absolute top-0 left-0 w-full h-full rounded-[5px] z-[1]' />
+                        <img src={arr[0].img} className='absolute left-0 top-0 z-[1] h-full w-full rounded-[5px]' />
                     </div>
-                    <div className='w-[472.3px] h-[400px]'>
+                    <div className='h-[400px] w-[472.3px]'>
                         {arr.slice(0, 4).map((item, index) => {
                             return (
-                                <div key={index} className='flex items-center text-white pb-[36px] last:pb-0'>
+                                <div key={index} className='flex items-center pb-[36px] text-white last:pb-0'>
                                     <div>
-                                        <img src={item.img} className='w-[85.3px] h-[73px] mr-[23px] rounded-[5px]' />
+                                        <img src={item.img} className='mr-[23px] h-[73px] w-[85.3px] rounded-[5px]' />
                                     </div>
                                     <div>
-                                        <div className='font-light text-[11px] italic text-black dark:text-white pb-[5px]'>{item.time}</div>
-                                        <div className='font-semibold text-[12px] text-gray-normal-alt dark:text-gray-lightest-alt6'>
+                                        <div className='pb-[5px] text-[11px] font-light italic text-black dark:text-white'>{item.time}</div>
+                                        <div className='text-[12px] font-semibold text-gray-normal-alt dark:text-gray-lightest-alt6'>
                                             {item.title}
                                         </div>
                                     </div>

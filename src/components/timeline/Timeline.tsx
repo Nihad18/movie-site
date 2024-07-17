@@ -13,11 +13,11 @@ const Timeline = () => {
         setSelectedTime(time);
     };
     return (
-        <div className='pt-[110px] pb-[82px]'>
+        <div className='pb-[82px] pt-[110px]'>
             <div className='container'>
-                <div className='text-gray-darker-alt2 dark:text-white text-[25px] font-medium pb-[23px]'>Pearls of Azerbaijani cinema</div>
-                <div className='sub-container mx-auto pt-[27px] pb-[28px]'>
-                    <div className={`h-[42px] flex items-center mb-[81px] ${styles.lineContainer}`}>
+                <div className='pb-[23px] text-[25px] font-medium text-gray-darker-alt2 dark:text-white'>Pearls of Azerbaijani cinema</div>
+                <div className='sub-container mx-auto pb-[28px] pt-[27px]'>
+                    <div className={`mb-[81px] flex h-[42px] items-center ${styles.lineContainer}`}>
                         <div className={`bg-gray-lightest-alt5 dark:bg-gray-darkest-alt ${styles.line}`}></div>
                         <div
                             className={`bg-black dark:bg-white ${styles.fillLine}`}
@@ -31,30 +31,32 @@ const Timeline = () => {
                                 onClick={() => handleMarkerClick(time)}
                             >
                                 <div
-                                    className={`${time == selectedTime
+                                    className={`${
+                                        time == selectedTime
                                             ? `text-black dark:text-white ${styles.activeMarkerLabel}`
                                             : `text-gray-lightest-alt5 dark:text-gray-normal-alt ${styles.markerLabel}`
-                                        }`}
+                                    }`}
                                 >
                                     {time}
                                 </div>
                                 <div
-                                    className={`${time == selectedTime
-                                            ? `bg-black dark:bg-white  ${styles.activeMarker}`
-                                            : `bg-gray-lightest-alt5 dark:bg-gray-normal-alt"  ${styles.marker}`
-                                        }`}
+                                    className={`${
+                                        time == selectedTime
+                                            ? `bg-black dark:bg-white ${styles.activeMarker}`
+                                            : `dark:bg-gray-normal-alt" bg-gray-lightest-alt5 ${styles.marker}`
+                                    }`}
                                 ></div>
                             </div>
                         ))}
                     </div>
-                    <div className='w-[1084px] flex justify-between items-center'>
-                        <div className='w-[558px] h-[432px]'>
-                            <img className='w-full h-full' src={MoviePoster} />
+                    <div className='flex w-[1084px] items-center justify-between'>
+                        <div className='h-[432px] w-[558px]'>
+                            <img className='h-full w-full' src={MoviePoster} />
                         </div>
                         <div className='w-[415px]'>
-                            <div className='font-light text-[11px] pb-[6px] text-black dark:text-white'>OPERETTA</div>
-                            <div className='font-medium text-[25px] pb-[30px] text-gray-darker-alt2 dark:text-white'>Arshin Mal Alan</div>
-                            <div className='font-medium text-[14px] text-gray-normal-alt2 dark:text-gray-lighter-alt5'>
+                            <div className='pb-[6px] text-[11px] font-light text-black dark:text-white'>OPERETTA</div>
+                            <div className='pb-[30px] text-[25px] font-medium text-gray-darker-alt2 dark:text-white'>Arshin Mal Alan</div>
+                            <div className='text-[14px] font-medium text-gray-normal-alt2 dark:text-gray-lighter-alt5'>
                                 Arshin Mal Alan is a 4-act operetta composed by Azerbaijani composer Uzeyir Hajibeyov. The libretto of the work was
                                 also written by Uzeyir Hajibeyov in 1913 in St. Petersburg. The premiere of the opera was held on October 25, 1913 at
                                 the Haji Zeynelabidin Tagiyev Theater in Baku.

@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+import React, { ReactNode } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 interface LazyLoadBackgroundImageProps {
     src: string;
@@ -11,31 +11,19 @@ interface LazyLoadBackgroundImageProps {
     children: ReactNode;
 }
 
-const LazyLoadBackgroundImage: React.FC<LazyLoadBackgroundImageProps> = ({
-    src,
-    alt,
-    className,
-    style,
-    children,
-}) => {
-
+const LazyLoadBackgroundImage: React.FC<LazyLoadBackgroundImageProps> = ({ src, alt, className, style, children }) => {
     return (
         <div
             className={className}
             style={{
                 ...style,
                 backgroundImage: `url(${src})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                transition: 'background-image 0.5s ease-in-out',
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                transition: "background-image 0.5s ease-in-out",
             }}
         >
-            <LazyLoadImage
-                src={src}
-                alt={alt}
-                effect="opacity"
-                wrapperClassName="hidden"
-            />
+            <LazyLoadImage src={src} alt={alt} effect='opacity' wrapperClassName='hidden' />
             {children}
         </div>
     );

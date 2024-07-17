@@ -1,12 +1,12 @@
 import * as React from "react";
 import { useContext } from "react";
 import { DataContext } from "@/context/MainContext";
-import useEmblaCarousel from 'embla-carousel-react';
+import useEmblaCarousel from "embla-carousel-react";
 import {
-  type EmblaCarouselType as CarouselApi,
-  type EmblaOptionsType as CarouselOptions,
-  type EmblaPluginType as CarouselPlugin,
-} from 'embla-carousel';
+    type EmblaCarouselType as CarouselApi,
+    type EmblaOptionsType as CarouselOptions,
+    type EmblaPluginType as CarouselPlugin,
+} from "embla-carousel";
 
 import { cn } from "@/lib/utils";
 
@@ -138,7 +138,7 @@ const CarouselContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HT
         <div ref={carouselRef} className='overflow-hidden'>
             <div
                 ref={ref}
-                className={cn(" h-[100vh] flex items-end pb-[83px]", orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col", className)}
+                className={cn("flex h-[100vh] items-end pb-[83px]", orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col", className)}
                 {...props}
             />
         </div>

@@ -3,7 +3,7 @@ import Header from "@/components/header/Header";
 import { DataContext } from "@/context/MainContext";
 import { useContext, useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
-import styles from "./authLayout.module.scss"
+import styles from "./authLayout.module.scss";
 import LazyLoadBackgroundImage from "@/components/LazyLoadBackgroundImage ";
 const AuthLayout = () => {
     const navigate = useNavigate();
@@ -18,7 +18,7 @@ const AuthLayout = () => {
 
     return (
         <div className={`${theme === "dark" ? "dark" : ""}`}>
-            <LazyLoadBackgroundImage src="/bg-cover.png" className={`${styles['bg-image']} relative`}>
+            <LazyLoadBackgroundImage src='/bg-cover.png' className={`${styles["bg-image"]} relative`}>
                 <Header />
                 <main>
                     <Outlet />
@@ -26,6 +26,6 @@ const AuthLayout = () => {
             </LazyLoadBackgroundImage>
         </div>
     );
-}
+};
 
 export default AuthLayout;

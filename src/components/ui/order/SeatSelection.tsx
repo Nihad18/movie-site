@@ -18,9 +18,9 @@ const SeatSelection = () => {
         setSeats([...newSeats]);
     };
     return (
-        <div className='flex-1 h-full overflow-x-hidden '>
+        <div className='h-full flex-1 overflow-x-hidden'>
             <div>
-                <div className='text-center text-white text-[25px] pt-[39px] pb-[34px]'>Date</div>
+                <div className='pb-[34px] pt-[125px] text-center text-[25px] text-white'>Date</div>
                 <div className='flex justify-center'>
                     {dates.map((date, index) => (
                         <div
@@ -28,8 +28,7 @@ const SeatSelection = () => {
                             onClick={() => setActiveDate(date)}
                             className={`${
                                 date == activeDate ? "bg-gray-lightest-alt" : "bg-gray-darker-alt3"
-                            } w-[40px] h-[58px] rounded-[30px] text-white cursor-pointer
-                         flex items-center justify-center mr-[23px] last:mr-0`}
+                            } mr-[23px] flex h-[58px] w-[40px] cursor-pointer items-center justify-center rounded-[30px] text-white last:mr-0`}
                         >
                             {date}
                         </div>
@@ -37,10 +36,10 @@ const SeatSelection = () => {
                 </div>
             </div>
 
-            <div className='w-[447px] h-[1px] bg-gray-darkest-alt2 mx-auto mt-[52px] mb-[46px]'></div>
+            <div className='mx-auto mb-[46px] mt-[52px] h-[1px] w-[447px] bg-gray-darkest-alt2'></div>
 
             <div>
-                <div className='text-center text-white text-[25px] pb-[34px]'>Time</div>
+                <div className='pb-[34px] text-center text-[25px] text-white'>Time</div>
                 <div className='flex justify-center'>
                     {times.map((time, index) => (
                         <div
@@ -48,8 +47,7 @@ const SeatSelection = () => {
                             onClick={() => setActiveTime(time)}
                             className={`${
                                 time == activeTime ? "bg-gray-lightest-alt" : "bg-gray-darker-alt3"
-                            } w-[107px] h-[42px] rounded-[30px] text-white cursor-pointer
-                         flex items-center justify-center mr-[23px] last:mr-0`}
+                            } mr-[23px] flex h-[42px] w-[107px] cursor-pointer items-center justify-center rounded-[30px] text-white last:mr-0`}
                         >
                             {time}
                         </div>
@@ -57,17 +55,17 @@ const SeatSelection = () => {
                 </div>
             </div>
 
-            <div className='w-[638px] h-[1px] bg-gray-darkest-alt2 mx-auto mt-[52px] mb-[104px]'></div>
+            <div className='mx-auto mb-[104px] mt-[52px] h-[1px] w-[638px] bg-gray-darkest-alt2'></div>
 
             <div className='relative'>
-                <div className='absolute top-[-25%] left-[50%] translate-x-[-50%]'>
+                <div className='absolute left-[50%] top-[-25%] translate-x-[-50%]'>
                     <img src='/LIGHT.svg' alt='light' />
                 </div>
                 {seats?.map((row, rowIndex) => (
-                    <div className='relative flex items-center justify-center my-[5.5px]' key={rowIndex}>
+                    <div className='relative my-[5.5px] flex items-center justify-center' key={rowIndex}>
                         <span className='pr-2 text-white'>{row.row}</span>
-                        <div className='flex justify-center w-[380px]'>
-                            {row.seats.map((seat:any, seatIndex:any) => (
+                        <div className='flex w-[380px] justify-center'>
+                            {row.seats.map((seat: any, seatIndex: any) => (
                                 <div
                                     key={seatIndex}
                                     onClick={() => handleSeatSelection(rowIndex, seatIndex)}
@@ -75,10 +73,9 @@ const SeatSelection = () => {
                                         seat.status == SeatStatus.booked
                                             ? "cursor-not-allowed bg-gray-darker-alt4"
                                             : seat.status == SeatStatus.available
-                                            ? "cursor-pointer bg-gray-light"
-                                            : "cursor-pointer bg-primary-dark"
-                                    }
-                                flex flex-shrink-0 items-center justify-center w-[19px] h-[19px] mx-[6px] rounded-full`}
+                                              ? "cursor-pointer bg-gray-light"
+                                              : "cursor-pointer bg-primary-dark"
+                                    } mx-[6px] flex h-[19px] w-[19px] flex-shrink-0 items-center justify-center rounded-full`}
                                 ></div>
                             ))}
                         </div>
@@ -87,17 +84,17 @@ const SeatSelection = () => {
                 ))}
             </div>
 
-            <div className='flex justify-center text-white text-[15px] mt-[36px] mb-[127px]'>
-                <div className='flex items-center mr-[25.26px]'>
-                    <div className='w-4 h-4 mr-[12.63px] rounded-full bg-gray-light'></div>
+            <div className='mb-[127px] mt-[36px] flex justify-center text-[15px] text-white'>
+                <div className='mr-[25.26px] flex items-center'>
+                    <div className='mr-[12.63px] h-4 w-4 rounded-full bg-gray-light'></div>
                     <div>Available</div>
                 </div>
-                <div className='flex items-center mr-[25.26px]'>
-                    <div className='w-4 h-4 mr-[12.63px] rounded-full bg-gray-darker-alt4'></div>
+                <div className='mr-[25.26px] flex items-center'>
+                    <div className='mr-[12.63px] h-4 w-4 rounded-full bg-gray-darker-alt4'></div>
                     <div>Booked</div>
                 </div>
                 <div className='flex items-center'>
-                    <div className='w-4 h-4 mr-[12.63px] rounded-full bg-primary-dark'></div>
+                    <div className='mr-[12.63px] h-4 w-4 rounded-full bg-primary-dark'></div>
                     <div>Selected</div>
                 </div>
             </div>

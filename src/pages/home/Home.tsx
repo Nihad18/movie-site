@@ -10,13 +10,13 @@ import { useQuery } from "@tanstack/react-query";
 const Home = () => {
     const user = useAuth();
     const upComingFilms = useQuery({ queryKey: ["fetchData"], queryFn: () => MovieService.getUpComing() });
-    const onTheAirFilms = useQuery({ queryKey: ["fetchData"], queryFn: () => MovieService.getOnTheAir() })
+    const onTheAirFilms = useQuery({ queryKey: ["fetchData"], queryFn: () => MovieService.getOnTheAir() });
     return (
         <section>
             <CarouselContainer />
-            <SeeMore name="Curently playing" link="/curently-playing" data={upComingFilms?.data?.data} />
-            <SeeMore name="Coming soon" link="/coming-soon" data={onTheAirFilms.data?.data} />
-            {user?.token && <SeeMore name="Already watched movies" link="/already-watched-movies" data={onTheAirFilms.data?.data} />}
+            <SeeMore name='Curently playing' link='/curently-playing' data={upComingFilms?.data?.data} />
+            <SeeMore name='Coming soon' link='/coming-soon' data={onTheAirFilms.data?.data} />
+            {user?.token && <SeeMore name='Already watched movies' link='/already-watched-movies' data={onTheAirFilms.data?.data} />}
             <Timeline />
             <AboutUs />
             <LatestNews />

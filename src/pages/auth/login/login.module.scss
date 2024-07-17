@@ -3,13 +3,13 @@
 
 @layer components {
     .login {
-        @apply grid place-items-center w-full h-full absolute inset-0;
+        @apply absolute inset-0 grid h-full w-full place-items-center;
     }
     .wrapper {
-        @apply rounded-[5px]  bg-white;
+        @apply rounded-[5px] bg-white;
     }
     .title {
-        @apply text-3xl text-center font-bold;
+        @apply text-center text-3xl font-bold;
     }
 }
 
