@@ -1,15 +1,19 @@
+import { seatData } from "@/lib/utils";
 import React, { createContext, useState, ReactNode } from "react";
 
-interface SelectedSeats {
+interface Seats {
     rowId: number;
-    seatId: number;
     row: string;
-    seatNumber: number;
+    seats: {
+        seatId: number;
+        seatNumber: number;
+        status: string;
+    }[];
 }
 
 interface DataContextProps {
     theme: string;
-    changeTheme: () => void
+    changeTheme: () => void;
 
     activeCarouselIndex: number;
     setActiveCarouselIndex: React.Dispatch<React.SetStateAction<number>>;
@@ -20,8 +24,8 @@ interface DataContextProps {
     activeTime: string;
     setActiveTime: React.Dispatch<React.SetStateAction<string>>;
 
-    selectedSeats: SelectedSeats[];
-    setSelectedSeats: React.Dispatch<React.SetStateAction<SelectedSeats[]>>;
+    seats: Seats[];
+    setSeats: React.Dispatch<React.SetStateAction<Seats[]>>;
 }
 
 interface DataProviderProps {
@@ -30,19 +34,19 @@ interface DataProviderProps {
 
 export const DataContext = createContext<DataContextProps>({
     theme: "light",
-    changeTheme: () => { },
+    changeTheme: () => {},
 
     activeCarouselIndex: 1,
-    setActiveCarouselIndex: () => { },
+    setActiveCarouselIndex: () => {},
 
     activeDate: 0,
-    setActiveDate: () => { },
+    setActiveDate: () => {},
 
     activeTime: "",
-    setActiveTime: () => { },
+    setActiveTime: () => {},
 
-    selectedSeats: [],
-    setSelectedSeats: () => { },
+    seats: [],
+    setSeats: () => {},
 });
 
 export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
@@ -50,11 +54,11 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
     const [activeCarouselIndex, setActiveCarouselIndex] = useState(1);
     const [activeDate, setActiveDate] = useState<number>(0);
     const [activeTime, setActiveTime] = useState<string>("");
-    const [selectedSeats, setSelectedSeats] = useState<SelectedSeats[]>([]);
+    const [seats, setSeats] = useState<Seats[]>(seatData);
     const changeTheme = () => {
-        setTheme(prev => prev == "dark" ? "light" : "dark")
+        setTheme((prev) => (prev == "dark" ? "light" : "dark"));
         localStorage.setItem("theme", theme == "light" ? "dark" : "light");
-    }
+    };
     return (
         <DataContext.Provider
             value={{
@@ -66,8 +70,8 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
                 setActiveDate,
                 activeTime,
                 setActiveTime,
-                selectedSeats,
-                setSelectedSeats,
+                seats,
+                setSeats,
             }}
         >
             {children}
