@@ -14,10 +14,10 @@ const SelectedSeats = () => {
         setSeats([...newSeats]);
     };
     return (
-        <div className='relative w-[708px] h-full flex items-center justify-center'>
-            <img src='/movie-poster.png' className='absolute object-cover w-full h-full' />
-            {activeDate > 0 && activeTime !== "" && (
-                <div className=' relative text-xl text-white bg-black w-[409px] h-[524px]'>
+        <div className='relative w-[47%] h-full bg-cover bg-no-repeat bg-center grid place-items-center'
+        style={{backgroundImage:"url(https://image.tmdb.org/t/p/original//hqDkO0W9uk4aiwzn3pTeLO7NPZD.jpg)"}}>
+            {activeDate > 0 && activeTime !== ""  && (
+                <div className='xl:mt-[100px] 2xl:mt-[150px] relative text-xl text-white bg-black w-[409px] h-[524px]'>
                     <div className='mt-[41px] mb-[44px] text-center'>Selected seats</div>
                     <div className={`${styles.scroller} overflow-y-auto h-[32%] mx-[6px]`}>
                         {seats.map((row) => {
@@ -29,7 +29,10 @@ const SelectedSeats = () => {
                                     {row.row} row / {seat.seatNumber} seat
                                     <div className='ml-[33px] mr-[34px]'>$24</div>
                                     <div className='cursor-pointer' onClick={() => handleClick(row.rowId, seat.seatId)}>
-                                        X
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7 7L13 13M1 13L7 7L1 13ZM13 1L6.99886 7L13 1ZM6.99886 7L1 1L6.99886 7Z" 
+                                        stroke="#787878" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                        </svg>
                                     </div>
                                 </div>
                             ));
