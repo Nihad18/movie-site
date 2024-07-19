@@ -8,8 +8,7 @@ interface SelectedSeatsProps {
     setShowModal: (argument: boolean) => void;
 }
 const SelectedSeats: React.FC<SelectedSeatsProps> = ({ setShowModal }) => {
-    const [selectedSeats, setSelectedSeats] = useState<SelectedSeatWithRow[]>([]);
-    const { activeDate, activeTime, seats, setSeats } = useContext(DataContext);
+    const { activeDate, activeTime, seats, setSeats, selectedSeats, setSelectedSeats } = useContext(DataContext);
     const handleClick = (rowId: number, seatId: number) => {
         const newSeats = [...seats];
         const selectedSeat = newSeats.find((row: Row) => row.rowId === rowId)?.seats.find((seat: Seat) => seat.seatId === seatId);
