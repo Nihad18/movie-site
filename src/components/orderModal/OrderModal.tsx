@@ -20,6 +20,7 @@ interface OrderModalProps {
 
 const OrderModal: React.FC<OrderModalProps> = ({ setShowModal, setCongratsModal }) => {
     const { seats, setSeats, selectedSeats, setSelectedSeats } = useContext(DataContext);
+    
     const initialValues: OrderFormData = {
         nameSurname: "",
         email: "",
