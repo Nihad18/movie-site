@@ -1,16 +1,6 @@
 import { seatData } from "@/lib/utils";
 import React, { createContext, useState, ReactNode } from "react";
-
-interface Seats {
-    rowId: number;
-    row: string;
-    seats: {
-        seatId: number;
-        seatNumber: number;
-        status: string;
-    }[];
-}
-
+import { SeatsData } from "@/types/seatDataTypes";
 interface DataContextProps {
     theme: string;
     changeTheme: () => void;
@@ -24,8 +14,8 @@ interface DataContextProps {
     activeTime: string;
     setActiveTime: React.Dispatch<React.SetStateAction<string>>;
 
-    seats: Seats[];
-    setSeats: React.Dispatch<React.SetStateAction<Seats[]>>;
+    seats: SeatsData;
+    setSeats: React.Dispatch<React.SetStateAction<SeatsData>>;
 }
 
 interface DataProviderProps {
@@ -54,7 +44,7 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
     const [activeCarouselIndex, setActiveCarouselIndex] = useState(1);
     const [activeDate, setActiveDate] = useState<number>(0);
     const [activeTime, setActiveTime] = useState<string>("");
-    const [seats, setSeats] = useState<Seats[]>(seatData);
+    const [seats, setSeats] = useState<SeatsData>(seatData);
     const changeTheme = () => {
         setTheme((prev) => (prev == "dark" ? "light" : "dark"));
         localStorage.setItem("theme", theme == "light" ? "dark" : "light");
