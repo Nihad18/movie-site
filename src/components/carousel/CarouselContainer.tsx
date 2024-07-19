@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { DataContext } from "@/context/MainContext";
 
 import { Card, CardContent } from "@/components/carousel/Card";
@@ -14,10 +14,17 @@ import { Link } from "react-router-dom";
 
 export function CarouselContainer() {
     const { activeCarouselIndex } = useContext(DataContext);
-    const { data, isLoading } = useQuery({ queryKey: ["fetchData"], queryFn: () => MovieService.getAll() });
+    const [activeText, setActiveText] = useState<boolean>(true);
+
+    const { data, isLoading } = useQuery({
+        queryKey: ["fetchData", activeText ? 1 : 2],
+        queryFn: () => MovieService.getAll(activeText ? 1 : 2),
+        staleTime: 60 * 60 * 1000,
+    });
+
     if (isLoading) console.log("loading...");
     return (
-        <div className='carousel-image relative min-w-full max-w-sm select-none'>
+        <div className='relative max-w-sm min-w-full select-none carousel-image'>
             <LazyLoadImage
                 alt={`${data?.data?.results?.[activeCarouselIndex]?.title || data?.data?.results?.[activeCarouselIndex]?.name} Poster`}
                 effect='blur'
@@ -25,6 +32,19 @@ export function CarouselContainer() {
                 placeholderSrc='placeholder.jpg'
                 wrapperClassName='carousel-poster-image'
             />
+            <div className='absolute bottom-[128px] h-[1px] w-full bg-[#C0C0C0]'></div>
+            
+            <div className='absolute top-[264px] z-20'>
+                <div onClick={() => setActiveText(true)} className={`${activeText == true ? "active-carousel-text" : "carousel-text"}`}>
+                    <div className='h-[1px] w-full bg-white'></div>
+                    <div>Today</div>
+                </div>
+                <div onClick={() => setActiveText(false)} className={`${activeText == true ? "carousel-text" : "active-carousel-text"} mt-[33px]`}>
+                    <div className='h-[1px] w-full bg-white'></div>
+                    <div>SOON</div>
+                </div>
+            </div>
+            
             <Carousel
                 opts={{
                     align: "start",
@@ -41,7 +61,7 @@ export function CarouselContainer() {
                                     index == activeCarouselIndex ? "h-[383px] w-[287px]" : "h-[179px] w-[124px]"
                                 }`}
                             >
-                                <CardContent className='flex aspect-square h-full w-full flex-col items-center justify-end'>
+                                <CardContent className='flex flex-col items-center justify-end w-full h-full aspect-square'>
                                     {index == activeCarouselIndex && (
                                         <div className='z-[2] mb-[27px] animate-slideIn text-center delay-[400ms]'>
                                             <div className='mb-[13px] text-center text-[20px] text-white'>{item.title || item.name}</div>
