@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Formik, FormikProps, ErrorMessage } from "formik";
 import styles from "./orderModal.module.scss";
 import { OrderFormSchema } from "@/validations";
@@ -6,9 +6,12 @@ import { Input } from "../ui/Input";
 import { Button } from "../ui/Button";
 import { OrderFormData } from "@/types/common";
 import { useAuth } from "@/context/AuthContext";
-import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { DataContext } from "@/context/MainContext";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import classNames from "classnames";
 import { CellPhoneInput } from "../ui/CellPhoneInput";
+import { Row, Seat, SelectedSeatWithRow } from "@/types/seatDataTypes";
+import { SeatStatus } from "@/enums/SeatStatus";
 
 interface OrderModalProps {
     setShowModal: (argument: boolean) => void;
@@ -16,11 +19,12 @@ interface OrderModalProps {
 }
 
 const OrderModal: React.FC<OrderModalProps> = ({ setShowModal, setCongratsModal }) => {
+    const { seats, setSeats, selectedSeats, setSelectedSeats } = useContext(DataContext);
     const initialValues: OrderFormData = {
         nameSurname: "",
         email: "",
         cellPhone: "",
-        payment: ""
+        payment: "",
     };
 
     const stripe = useStripe();
@@ -33,32 +37,35 @@ const OrderModal: React.FC<OrderModalProps> = ({ setShowModal, setCongratsModal 
     }
 
     const handleCardElementChange = (event: any, setFieldValue: (field: string, value: any) => void) => {
-        setFieldValue('payment', event.complete ? 'complete' : '');
+        setFieldValue("payment", event.complete ? "complete" : "");
         setCardError(event.error ? event.error.message : null);
+    };
+
+    const handleClick = () => {
+        const updatedSeats = seats.map((row: Row) => ({
+            ...row,
+            seats: row.seats.map((seat: Seat) =>
+                selectedSeats.some((selectedSeat: SelectedSeatWithRow) => selectedSeat.seat.seatId === seat.seatId)
+                    ? { ...seat, status: SeatStatus.booked }
+                    : seat,
+            ),
+        }));
+        setSeats([...updatedSeats]);
+        setSelectedSeats([]);
     };
 
     return (
         <div className={styles.modal}>
-            <div className={styles['modal-inner']}>
-                <div className="relative">
-                    <button
-                        className={styles.closeBtn}
-                        type="button"
-                        onClick={() => setShowModal(false)}
-                    >
-                        <svg
-                            width="14"
-                            height="14"
-                            viewBox="0 0 14 14"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
+            <div className={styles["modal-inner"]}>
+                <div className='relative'>
+                    <button className={styles.closeBtn} type='button' onClick={() => setShowModal(false)}>
+                        <svg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'>
                             <path
-                                d="M7 7L13 13M1 13L7 7L1 13ZM13 1L6.99886 7L13 1ZM6.99886 7L1 1L6.99886 7Z"
-                                stroke="#787878"
-                                strokeWidth="1.5"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
+                                d='M7 7L13 13M1 13L7 7L1 13ZM13 1L6.99886 7L13 1ZM6.99886 7L1 1L6.99886 7Z'
+                                stroke='#787878'
+                                strokeWidth='1.5'
+                                strokeLinecap='round'
+                                strokeLinejoin='round'
                             />
                         </svg>
                     </button>
@@ -74,7 +81,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ setShowModal, setCongratsModal 
 
                                 if (cardElement) {
                                     const { error, paymentMethod } = await stripe.createPaymentMethod({
-                                        type: 'card',
+                                        type: "card",
                                         card: cardElement,
                                     });
 
@@ -82,63 +89,62 @@ const OrderModal: React.FC<OrderModalProps> = ({ setShowModal, setCongratsModal 
                                         console.error(error);
                                         setCardError(error.message);
                                     } else {
-                                        console.log('PaymentMethod', paymentMethod);
+                                        console.log("PaymentMethod", paymentMethod);
                                         // Send paymentMethod.id to your server to handle the payment
                                     }
                                 }
                                 actions.setSubmitting(false);
                                 alert(JSON.stringify(values, null, 2));
                                 setShowModal(false);
-                                setCongratsModal(true)
+                                setCongratsModal(true);
                             }}
                             validationSchema={OrderFormSchema}
                         >
                             {(props: FormikProps<OrderFormData>) => (
-                                <form className="grid gap-y-2" onSubmit={props.handleSubmit} noValidate>
-                                    <Input name="nameSurname" type="text" id="nameSurname" label="Name and surname" />
-                                    <Input name="email" type="email" id="email" label="Email" />
-                                    <div className="field mb-3">
-                                        <label htmlFor="promo" className={styles.label}>
+                                <form className='grid gap-y-2' onSubmit={props.handleSubmit} noValidate>
+                                    <Input name='nameSurname' type='text' id='nameSurname' label='Name and surname' />
+                                    <Input name='email' type='email' id='email' label='Email' />
+                                    <div className='mb-3 field'>
+                                        <label htmlFor='promo' className={styles.label}>
                                             Promo
                                         </label>
                                         <div className={styles["input-group"]}>
-                                            <Input name="promo" type="text" id="promo" />
-                                            <Button type="button" variant={"outline"}>
+                                            <Input name='promo' type='text' id='promo' />
+                                            <Button type='button' variant={"outline"}>
                                                 Apply
                                             </Button>
                                         </div>
                                     </div>
-                                    <CellPhoneInput name="cellPhone" type="text" label="Cell.phone" />
-                                    <div className='h-[80px] mt-1'>
-                                        <label htmlFor="payment" className={styles.label}>Payment</label>
+                                    <CellPhoneInput name='cellPhone' type='text' label='Cell.phone' />
+                                    <div className='mt-1 h-[80px]'>
+                                        <label htmlFor='payment' className={styles.label}>
+                                            Payment
+                                        </label>
                                         <CardElement
-                                            id="payment"
+                                            id='payment'
                                             className={classNames({
-                                                "text-[15px] font-medium outline-none placeholder:text-muted-foreground text-black h-10 rounded-md border border-solid border-gray-lightest-alt2 px-4 py-[11px] text-sm transition-all": true,
+                                                "placeholder:text-muted-foreground h-10 rounded-md border border-solid border-gray-lightest-alt2 px-4 py-[11px] text-[15px] text-sm font-medium text-black outline-none transition-all":
+                                                    true,
                                                 "border-red-600": cardError || props.errors.payment,
                                             })}
-
                                             onChange={(event) => handleCardElementChange(event, props.setFieldValue)}
                                         />
                                         {cardError ? (
-                                            <div className="text-red-600 text-sm mt-1">{cardError}</div>
+                                            <div className='mt-1 text-sm text-red-600'>{cardError}</div>
                                         ) : (
-                                            <ErrorMessage name="payment" component="div" className="text-red-600 text-sm mt-1" />
+                                            <ErrorMessage name='payment' component='div' className='mt-1 text-sm text-red-600' />
                                         )}
                                     </div>
-                                    <div className="relative mt-5">
+                                    <div className='relative mt-5'>
                                         <Button
-                                            className="w-full max-w-[250px] flex mx-auto bg-primary-dark"
-                                            type="submit"
+                                            className='mx-auto flex w-full max-w-[250px] bg-primary-dark'
+                                            type='submit'
+                                            onClick={handleClick}
                                             disabled={props.isSubmitting}
                                         >
-                                            <span className={`${props.isSubmitting ? "hidden" : "block"}`}>
-                                                Purchase (48$)
-                                            </span>
+                                            <span className={`${props.isSubmitting ? "hidden" : "block"}`}>Purchase (48$)</span>
                                         </Button>
-                                        <div
-                                            className={`spinner-container ${props.isSubmitting ? "block" : "hidden"} grid place-items-center`}
-                                        >
+                                        <div className={`spinner-container ${props.isSubmitting ? "block" : "hidden"} grid place-items-center`}>
                                             <div className={"dot-spinner"}>
                                                 <div className={"dot-spinner__dot"}></div>
                                                 <div className={"dot-spinner__dot"}></div>
