@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { DataContext } from "@/context/MainContext";
 import { Button } from "../Button";
 import styles from "./selectedSeats.module.scss";
