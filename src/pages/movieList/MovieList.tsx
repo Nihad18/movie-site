@@ -3,15 +3,24 @@ import { useEffect } from "react";
 import FilmCard from "@/components/ui/filmCard/FilmCard";
 import { useQuery } from "@tanstack/react-query";
 import MovieService from "@/services/MovieService";
+import { useAuth } from "@/context/AuthContext";
 const MovieList = () => {
+    const user = useAuth()
     const { data, isLoading } = useQuery({ queryKey: ["fetchData1"], queryFn: () => MovieService.getAll() });
     if (isLoading) console.log("loading...");
     const { slug } = useParams();
     const navigate = useNavigate();
     const acceptedRoutes: string[] = ["curently-playing", "coming-soon"];
+
+    if (user?.token) {
+        acceptedRoutes.push("already-watched-movies")
+    }
+
     useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         if (slug && !acceptedRoutes.includes(slug)) navigate("/not-found");
     }, [slug]);
+
     const slugConvertor = (slug: string) => {
         const words = slug.split("-");
         let firstWord = words.shift() ?? "";
