@@ -95,6 +95,24 @@ button {
 .carousel-card-image img {
     @apply z-[-1] h-full w-full rounded-[5px] object-cover;
 }
+
+.carousel-text,
+.active-carousel-text {
+    @apply absolute z-10 flex cursor-pointer items-center justify-center italic leading-[24px] text-white transition-all;
+
+    &:last-child {
+        div {
+            margin-top: 3px;
+        }
+    }
+}
+.carousel-text {
+    @apply h-[24px] w-[135px] text-[13px];
+}
+.active-carousel-text {
+    @apply h-[24px] w-[185px] text-[20px];
+}
+
 .react-datepicker-wrapper {
     width: 100%;
     .react-datepicker__input-container {
