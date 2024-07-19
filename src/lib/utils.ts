@@ -1,4 +1,5 @@
 import { FooterLinksData } from "@/types/common";
+import { SeatsData } from "@/types/seatDataTypes";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -64,7 +65,7 @@ export const footerLinks: FooterLinksData[] = [
     },
 ];
 
-export const seatData = [
+export const seatData : SeatsData = [
     {
         rowId: 1,
         row: "G",
