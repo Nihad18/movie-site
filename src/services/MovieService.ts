@@ -6,8 +6,8 @@ export default class MovieService {
     static upComingPath = "/movie/upcoming";
     static onTheAir = "tv/popular";
 
-    static getAll() {
-        return HttpClient.get<any>(this.basePath);
+    static getAll(page: number = 1) {
+        return HttpClient.get<any>(this.basePath, page);
     }
     static getUpComing() {
         return HttpClient.get<FilmDataType>(this.upComingPath);
