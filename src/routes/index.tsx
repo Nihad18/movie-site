@@ -26,6 +26,10 @@ export const routes: RouteObject[] = [
                 path: "not-found",
                 element: <NotFound />,
             },
+            {
+                path: "*",
+                element: <NotFound />,
+            },
         ],
     },
     {
@@ -58,8 +62,5 @@ export const routes: RouteObject[] = [
             },
         ],
     },
-    {
-        path: "*",
-        element: <NotFound />,
-    },
+
 ];
