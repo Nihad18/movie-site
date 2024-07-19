@@ -1,6 +1,6 @@
 import { seatData } from "@/lib/utils";
 import React, { createContext, useState, ReactNode } from "react";
-import { SeatsData } from "@/types/seatDataTypes";
+import { SeatsData, SelectedSeatWithRow } from "@/types/seatDataTypes";
 interface DataContextProps {
     theme: string;
     changeTheme: () => void;
@@ -16,6 +16,9 @@ interface DataContextProps {
 
     seats: SeatsData;
     setSeats: React.Dispatch<React.SetStateAction<SeatsData>>;
+
+    selectedSeats: SelectedSeatWithRow[];
+    setSelectedSeats: React.Dispatch<React.SetStateAction<SelectedSeatWithRow[]>>;
 }
 
 interface DataProviderProps {
@@ -37,6 +40,9 @@ export const DataContext = createContext<DataContextProps>({
 
     seats: [],
     setSeats: () => {},
+
+    selectedSeats: [],
+    setSelectedSeats: () => {},
 });
 
 export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
@@ -45,6 +51,7 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
     const [activeDate, setActiveDate] = useState<number>(0);
     const [activeTime, setActiveTime] = useState<string>("");
     const [seats, setSeats] = useState<SeatsData>(seatData);
+    const [selectedSeats, setSelectedSeats] = useState<SelectedSeatWithRow[]>([]);
     const changeTheme = () => {
         setTheme((prev) => (prev == "dark" ? "light" : "dark"));
         localStorage.setItem("theme", theme == "light" ? "dark" : "light");
@@ -62,6 +69,8 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
                 setActiveTime,
                 seats,
                 setSeats,
+                selectedSeats,
+                setSelectedSeats,
             }}
         >
             {children}
