@@ -7,7 +7,7 @@
         @apply border-t border-t-[#414141] border-solid py-5 font-light text-[14px] text-[#676767];
     }
     .top-side {
-        @apply flex justify-between mb-[46.5px];
+        @apply grid grid-cols-2 gap-y-3 md:grid-cols-4  mb-[46.5px] px-3 ;
     }
 }
 
