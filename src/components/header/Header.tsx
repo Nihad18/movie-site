@@ -10,7 +10,7 @@ const Header = () => {
     return (
         <header className={`${styles.header}`}>
             <div className='container'>
-                <div className='flex items-center justify-between'>
+                <div className='flex items-center justify-between me-7 min-[1350px]:me-0'>
                     <Link to='/' className={styles.logo}>
                         <img src='/logo.svg' alt='logo' />
                     </Link>
