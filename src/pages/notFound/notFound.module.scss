@@ -180,21 +180,36 @@
     .screen {
         width: 13em;
         height: 7.85em;
+        font-family: Montserrat;
         border: 2px solid #1d0e01;
         background:
             repeating-radial-gradient(#000 0 0.0001%, #ffffff 0 0.0002%) 50% 0/2500px 2500px,
             repeating-conic-gradient(#000 0 0.0001%, #ffffff 0 0.0002%) 60% 60%/2500px 2500px;
         background-blend-mode: difference;
+        -webkit-animation: b 0.2s infinite alternate;
         animation: b 0.2s infinite alternate;
         border-radius: 10px;
         z-index: 99;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
         font-weight: bold;
         color: #252525;
         letter-spacing: 0.15em;
         text-align: center;
+    }
+    @-webkit-keyframes b {
+        100% {
+            background-position:
+                50% 0,
+                60% 50%;
+        }
     }
     @keyframes b {
         100% {
