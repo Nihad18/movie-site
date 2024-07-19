@@ -34,16 +34,16 @@ const Login = () => {
                                 <Button className='w-full' type='submit' disabled={props.isSubmitting}>
                                     <span className={`${props.isSubmitting ? "hidden" : "block"}`}>Login</span>
                                 </Button>
-                                <div className={`${styles["spinner-container"]} ${props.isSubmitting ? "block" : "hidden"} grid place-items-center`}>
-                                    <div className={styles["dot-spinner"]}>
-                                        <div className={styles["dot-spinner__dot"]}></div>
-                                        <div className={styles["dot-spinner__dot"]}></div>
-                                        <div className={styles["dot-spinner__dot"]}></div>
-                                        <div className={styles["dot-spinner__dot"]}></div>
-                                        <div className={styles["dot-spinner__dot"]}></div>
-                                        <div className={styles["dot-spinner__dot"]}></div>
-                                        <div className={styles["dot-spinner__dot"]}></div>
-                                        <div className={styles["dot-spinner__dot"]}></div>
+                                <div className={`spinner-container ${props.isSubmitting ? "block" : "hidden"} grid place-items-center`}>
+                                    <div className={"dot-spinner"}>
+                                        <div className={"dot-spinner__dot"}></div>
+                                        <div className={"dot-spinner__dot"}></div>
+                                        <div className={"dot-spinner__dot"}></div>
+                                        <div className={"dot-spinner__dot"}></div>
+                                        <div className={"dot-spinner__dot"}></div>
+                                        <div className={"dot-spinner__dot"}></div>
+                                        <div className={"dot-spinner__dot"}></div>
+                                        <div className={"dot-spinner__dot"}></div>
                                     </div>
                                 </div>
                             </div>

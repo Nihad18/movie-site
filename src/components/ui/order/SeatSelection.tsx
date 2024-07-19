@@ -20,15 +20,14 @@ const SeatSelection = () => {
     return (
         <div className='h-full flex-1 overflow-x-hidden'>
             <div>
-                <div className='pb-[34px] pt-[125px] text-center text-[25px] text-white'>Date</div>
+                <div className='pb-[34px] pt-[80px] text-center text-[25px] text-white'>Date</div>
                 <div className='flex justify-center'>
                     {dates.map((date, index) => (
                         <div
                             key={index}
                             onClick={() => setActiveDate(date)}
-                            className={`${
-                                date == activeDate ? "bg-gray-lightest-alt" : "bg-gray-darker-alt3"
-                            } mr-[23px] flex h-[58px] w-[40px] cursor-pointer items-center justify-center rounded-[30px] text-white last:mr-0`}
+                            className={`${date == activeDate ? "bg-gray-lightest-alt" : "bg-gray-darker-alt3"
+                                } mr-[23px] flex h-[58px] w-[40px] cursor-pointer items-center justify-center rounded-[30px] text-white last:mr-0`}
                         >
                             {date}
                         </div>
@@ -45,9 +44,8 @@ const SeatSelection = () => {
                         <div
                             key={index}
                             onClick={() => setActiveTime(time)}
-                            className={`${
-                                time == activeTime ? "bg-gray-lightest-alt" : "bg-gray-darker-alt3"
-                            } mr-[23px] flex h-[42px] w-[107px] cursor-pointer items-center justify-center rounded-[30px] text-white last:mr-0`}
+                            className={`${time == activeTime ? "bg-gray-lightest-alt" : "bg-gray-darker-alt3"
+                                } mr-[23px] flex h-[42px] w-[107px] cursor-pointer items-center justify-center rounded-[30px] text-white last:mr-0`}
                         >
                             {time}
                         </div>
@@ -69,13 +67,12 @@ const SeatSelection = () => {
                                 <div
                                     key={seatIndex}
                                     onClick={() => handleSeatSelection(rowIndex, seatIndex)}
-                                    className={`${
-                                        seat.status == SeatStatus.booked
+                                    className={`${seat.status == SeatStatus.booked
                                             ? "cursor-not-allowed bg-gray-darker-alt4"
                                             : seat.status == SeatStatus.available
-                                              ? "cursor-pointer bg-gray-light"
-                                              : "cursor-pointer bg-primary-dark"
-                                    } mx-[6px] flex h-[19px] w-[19px] flex-shrink-0 items-center justify-center rounded-full`}
+                                                ? "cursor-pointer bg-gray-light"
+                                                : "cursor-pointer bg-primary-dark"
+                                        } mx-[6px] flex h-[19px] w-[19px] flex-shrink-0 items-center justify-center rounded-full`}
                                 ></div>
                             ))}
                         </div>
