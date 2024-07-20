@@ -25,7 +25,7 @@ const SeeMore: React.FC<SeeMoreProps> = ({ name, link, data }) => {
                         </svg>
                     </Link>
                 </div>
-                <div className='flex gap-[26px]'>{data?.results.slice(0, 4).map((film, index) => <FilmCard key={index} {...film} />)}</div>
+                <div className='grid grid-cols-1 min-[480px]:grid-cols-2 min-[880px]:grid-cols-4 gap-[26px]'>{data?.results.slice(0, 4).map((film, index) => <FilmCard key={index} {...film} />)}</div>
             </div>
         </div>
     );

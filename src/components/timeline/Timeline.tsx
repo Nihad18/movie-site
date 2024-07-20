@@ -33,27 +33,25 @@ const Timeline = () => {
                                 onClick={() => handleMarkerClick(time)}
                             >
                                 <div
-                                    className={`${
-                                        time == selectedTime
-                                            ? `text-black dark:text-white ${styles.activeMarkerLabel}`
-                                            : `text-gray-lightest-alt5 dark:text-gray-normal-alt ${styles.markerLabel}`
-                                    }`}
+                                    className={`${time == selectedTime
+                                        ? `text-black dark:text-white ${styles.activeMarkerLabel}`
+                                        : `text-gray-lightest-alt5 dark:text-gray-normal-alt ${styles.markerLabel}`
+                                        }`}
                                 >
                                     {time}
                                 </div>
                                 <div
-                                    className={`${
-                                        time == selectedTime
-                                            ? `bg-black dark:bg-white ${styles.activeMarker}`
-                                            : `dark:bg-gray-normal-alt" bg-gray-lightest-alt5 ${styles.marker}`
-                                    }`}
+                                    className={`${time == selectedTime
+                                        ? `bg-black dark:bg-white ${styles.activeMarker}`
+                                        : `dark:bg-gray-normal-alt" bg-gray-lightest-alt5 ${styles.marker}`
+                                        }`}
                                 ></div>
                             </div>
                         ))}
                     </div>
                     <div className='flex max-w-[1084px] flex-col items-center justify-between lg:flex-row'>
-                        <div className='mx-5 h-[432px] max-w-[558px] lg:mx-0'>
-                            <img className='w-full h-full bg-cover' src={MoviePoster} />
+                        <div className='mx-5 lg:mx-0'>
+                            <img className='w-full max-w-md lg:max-w-[558px] h-full bg-cover' src={MoviePoster} />
                         </div>
                         <div className='mx-5 mt-8 max-w-[415px] lg:mx-0 lg:mt-0'>
                             <div className='pb-[6px] text-[11px] font-light text-black dark:text-white'>OPERETTA</div>

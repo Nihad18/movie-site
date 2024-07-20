@@ -1,12 +1,30 @@
 @import "../../styles/partials/variables.scss";
 
 .image {
-    width: 50%;
+    width: 100%;
+    max-width: 420px;
+    padding-top: 30px;
+    @media (min-width: 768px) {
+        padding-top: 0;
+        max-width: none;
+    }
+    @media (min-width: 992px) {
+        width: 50%;
+    }
 }
 
 .content {
-    max-width: 400px;
     width: 100%;
+    max-width: 420px;
+    padding-bottom: 30px;
+    @media (min-width: 768px) {
+        padding-bottom: 0;
+        max-width: none;
+    }
+    @media (min-width: 992px) {
+        max-width: 400px;
+        width: 100%;
+    }
 }
 
 .date {
