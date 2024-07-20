@@ -15,9 +15,11 @@ const Timeline = () => {
     return (
         <div className='pb-[82px] pt-[110px]'>
             <div className='container'>
-                <div className='pb-[23px] text-[25px] font-medium text-gray-darker-alt2 dark:text-white'>Pearls of Azerbaijani cinema</div>
+                <div className='text-[20px] font-medium text-gray-darker-alt2 dark:text-white lg:pb-[23px] lg:text-[25px]'>
+                    Pearls of Azerbaijani cinema
+                </div>
                 <div className='sub-container mx-auto pb-[28px] pt-[27px]'>
-                    <div className={`mb-[81px] flex h-[42px] items-center ${styles.lineContainer}`}>
+                    <div className={`mb-[40px] flex h-[42px] items-center lg:mb-[81px] ${styles.lineContainer}`}>
                         <div className={`bg-gray-lightest-alt5 dark:bg-gray-darkest-alt ${styles.line}`}></div>
                         <div
                             className={`bg-black dark:bg-white ${styles.fillLine}`}
@@ -49,13 +51,13 @@ const Timeline = () => {
                             </div>
                         ))}
                     </div>
-                    <div className='flex w-[1084px] items-center justify-between'>
-                        <div className='h-[432px] w-[558px]'>
-                            <img className='h-full w-full' src={MoviePoster} />
+                    <div className='flex max-w-[1084px] flex-col items-center justify-between lg:flex-row'>
+                        <div className='mx-5 h-[432px] max-w-[558px] lg:mx-0'>
+                            <img className='w-full h-full bg-cover' src={MoviePoster} />
                         </div>
-                        <div className='w-[415px]'>
+                        <div className='mx-5 mt-8 max-w-[415px] lg:mx-0 lg:mt-0'>
                             <div className='pb-[6px] text-[11px] font-light text-black dark:text-white'>OPERETTA</div>
-                            <div className='pb-[30px] text-[25px] font-medium text-gray-darker-alt2 dark:text-white'>Arshin Mal Alan</div>
+                            <div className='pb-[15px] lg:pb-[30px] text-[25px] font-medium text-gray-darker-alt2 dark:text-white'>Arshin Mal Alan</div>
                             <div className='text-[14px] font-medium text-gray-normal-alt2 dark:text-gray-lighter-alt5'>
                                 Arshin Mal Alan is a 4-act operetta composed by Azerbaijani composer Uzeyir Hajibeyov. The libretto of the work was
                                 also written by Uzeyir Hajibeyov in 1913 in St. Petersburg. The premiere of the opera was held on October 25, 1913 at

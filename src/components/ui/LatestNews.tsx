@@ -34,22 +34,22 @@ const LatestNews = () => {
     ];
     return (
         <section className='pb-[101px]'>
-            <div className='sub-container'>
+            <div className='px-4 sub-container lg:px-0'>
                 <div className='text-[25px] font-medium text-gray-darker-alt2 dark:text-white'>Latest news</div>
-                <div className='mt-[50px] flex items-center justify-between'>
-                    <div className='relative flex h-[457px] w-[558px] items-end pl-[35px]'>
+                <div className='mt-[50px] flex flex-col items-center justify-between lg:flex-row'>
+                    <div className='relative flex h-[304px] w-full items-end sm:h-[457px] sm:w-[558px] lg:pl-[35px]'>
                         <div className='relative z-[2]'>
-                            <div className='w-[314px] pb-[22px] text-[20px] font-semibold text-white'>{arr[0].title}</div>
-                            <div className='w-[471px] pb-[52px] text-[15px] font-medium text-gray-lighter-alt5'>{arr[0].desc}</div>
+                            <div className='max-w-[314px] pb-[22px] text-[16px] font-semibold text-white sm:text-[20px]'>{arr[0].title}</div>
+                            <div className='max-w-[471px] pb-[52px] text-[12px] font-medium text-gray-lighter-alt5 sm:text-[15px]'>{arr[0].desc}</div>
                         </div>
-                        <img src={arr[0].img} className='absolute left-0 top-0 z-[1] h-full w-full rounded-[5px]' />
+                        <img src={arr[0].img} className='absolute left-0 top-0 z-[1] h-full w-full rounded-[5px] bg-cover' />
                     </div>
-                    <div className='h-[400px] w-[472.3px]'>
+                    <div className='mt-8 h-[400px] w-full sm:w-[472.3px] lg:mt-0'>
                         {arr.slice(0, 4).map((item, index) => {
                             return (
                                 <div key={index} className='flex items-center pb-[36px] text-white last:pb-0'>
                                     <div>
-                                        <img src={item.img} className='mr-[23px] h-[73px] w-[85.3px] rounded-[5px]' />
+                                        <img src={item.img} className='mr-[23px] h-[73px] w-[85.3px] rounded-[5px] bg-cover' />
                                     </div>
                                     <div>
                                         <div className='pb-[5px] text-[11px] font-light italic text-black dark:text-white'>{item.time}</div>

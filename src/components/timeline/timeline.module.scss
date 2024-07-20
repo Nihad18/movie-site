@@ -26,7 +26,18 @@
             line-height: 24px;
             position: absolute;
             top: -13px;
-            left: -10px;
+            left: -15px;
+
+            @media screen and (max-width: 1024px) {
+                font-size: 14px;
+                top: -10px;
+                left: -12px;
+            }
+            @media screen and (max-width: 640px) {
+                font-size: 12px;
+                top: -8px;
+                left: -10px;
+            }
         }
         .marker,
         .activeMarker {

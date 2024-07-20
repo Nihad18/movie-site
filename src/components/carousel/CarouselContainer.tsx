@@ -33,7 +33,7 @@ export function CarouselContainer() {
                 wrapperClassName='carousel-poster-image'
             />
             <div className='absolute bottom-[128px] h-[1px] w-full bg-[#C0C0C0]'></div>
-            
+
             <div className='absolute top-[264px] z-20'>
                 <div onClick={() => setActiveText(true)} className={`${activeText == true ? "active-carousel-text" : "carousel-text"}`}>
                     <div className='h-[1px] w-full bg-white'></div>
@@ -44,7 +44,7 @@ export function CarouselContainer() {
                     <div>SOON</div>
                 </div>
             </div>
-            
+
             <Carousel
                 opts={{
                     align: "start",
@@ -57,8 +57,8 @@ export function CarouselContainer() {
                     {data?.data?.results?.map((item: any, index: any) => (
                         <CarouselItem key={index} id={`${index}`}>
                             <Card
-                                className={`relative mx-[23px] cursor-pointer overflow-hidden transition-[width,height] duration-300 ${
-                                    index == activeCarouselIndex ? "h-[383px] w-[287px]" : "h-[179px] w-[124px]"
+                                className={`relative mx-[12px] lg:mx-[23px] cursor-pointer overflow-hidden transition-[width,height] duration-300 ${
+                                    index == activeCarouselIndex ? "h-[255px] w-[191px] lg:h-[383px] lg:w-[287px]" : "h-[120px] w-[88px] lg:h-[179px] lg:w-[124px]"
                                 }`}
                             >
                                 <CardContent className='flex flex-col items-center justify-end w-full h-full aspect-square'>
