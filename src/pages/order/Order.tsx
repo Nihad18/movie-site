@@ -47,7 +47,7 @@ const Order = () => {
                                     />
                                 </svg>
                             </button>
-                            <div className="py-[54px] h-full px-[74px] text-center">
+                            <div className="py-[54px] h-full md:px-[74px] text-center">
                                 <h5 className="font-semibold text-[20px] leading-[64px] mb-[14px] text-black">Congratulations!</h5>
                                 <p className="font-semibold text-[15px] leading-1.5 text-gray-darker">Your’ve bought two tickets. Please, save it on your <br />
                                     device and show before the entering <br />

@@ -15,15 +15,9 @@ const LazyLoadBackgroundImage: React.FC<LazyLoadBackgroundImageProps> = ({ src, 
     return (
         <div
             className={className}
-            style={{
-                ...style,
-                backgroundImage: `url(${src})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                transition: "background-image 0.5s ease-in-out",
-            }}
+            style={{ ...style }}
         >
-            <LazyLoadImage src={src} alt={alt} effect='opacity' wrapperClassName='hidden' />
+            <LazyLoadImage src={src} alt={alt} effect='opacity' wrapperClassName='w-full h-full ' className="object-cover h-full w-full" />
             {children}
         </div>
     );

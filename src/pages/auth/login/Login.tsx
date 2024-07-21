@@ -50,7 +50,7 @@ const Login = () => {
                         </form>
                     )}
                 </Formik>
-                <div className='mt-3 text-center'>
+                <div className='mt-3 text-center px-3 md:px-0'>
                     Don't have an account yet?{" "}
                     <Link
                         className='font-semibold text-blue-600'

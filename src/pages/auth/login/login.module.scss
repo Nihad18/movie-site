@@ -3,7 +3,7 @@
 
 @layer components {
     .login {
-        @apply absolute inset-0 grid h-full w-full place-items-center;
+        @apply absolute inset-0 grid h-full w-full place-items-center px-3;
     }
     .wrapper {
         @apply rounded-[5px] bg-white;
@@ -18,5 +18,13 @@
     width: 100%;
     position: relative;
     z-index: 2;
-    padding: 30px 112px 35px;
+    padding: 30px 30px 35px;
+    @media (min-width: 576px) {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    @media (min-width: 768px) {
+        padding-left: 112px;
+        padding-right: 112px;
+    }
 }
