@@ -37,7 +37,7 @@ const SelectedSeats: React.FC<SelectedSeatsProps> = ({ setShowModal }) => {
             style={{ backgroundImage: "url(https://image.tmdb.org/t/p/original//hqDkO0W9uk4aiwzn3pTeLO7NPZD.jpg)" }}
         >
             {activeDate > 0 && activeTime !== "" && selectedSeats.length > 0 && (
-                <div className='relative h-[524px] w-[409px] bg-black text-xl text-white mt-[100px] 2xl:mt-[150px]'>
+                <div className='relative h-[524px] w-[90%] sm:w-[409px] bg-black text-xl text-white mt-[100px] 2xl:mt-[150px]'>
                     <div className='mb-[44px] mt-[41px] text-center'>Selected seats</div>
                     <div className={`${styles.scroller} mx-[6px] h-[32%] overflow-y-auto`}>
                         {selectedSeats.map((selectedSeat: SelectedSeatWithRow) => (
