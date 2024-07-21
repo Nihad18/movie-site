@@ -32,6 +32,7 @@ export default {
                 "green-alt": "#008F17",
                 "gray-lightest-alt5": "#BFBFBF",
                 "gray-lightest-alt6": "#CBCBCB",
+                "gray-lightest-alt7": "#C0C0C0",
                 "gray-normal-alt": "#7D7D7D",
                 "gray-normal-alt2": "#5D5D5D",
                 "gray-darkest-alt": "#6A6A6A",
