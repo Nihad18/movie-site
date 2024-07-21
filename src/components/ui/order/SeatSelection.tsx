@@ -28,7 +28,7 @@ const SeatSelection = () => {
                             onClick={() => setActiveDate(date)}
                             className={`${
                                 date == activeDate ? "bg-gray-lightest-alt" : "bg-gray-darker-alt3"
-                            } mr-[13px] flex h-[58px] w-[40px] cursor-pointer items-center justify-center rounded-[30px] text-white last:mr-0 md:mr-[23px]`}
+                            } mr-[13px] flex h-[58px] w-[40px] cursor-pointer items-center justify-center rounded-[30px] text-white transition-colors duration-200 last:mr-0 md:mr-[23px]`}
                         >
                             {date}
                         </div>
@@ -47,7 +47,7 @@ const SeatSelection = () => {
                             onClick={() => setActiveTime(time)}
                             className={`${
                                 time == activeTime ? "bg-gray-lightest-alt" : "bg-gray-darker-alt3"
-                            } mr-[13px] flex h-[32px] w-[60px] cursor-pointer items-center justify-center rounded-[30px] text-white last:mr-0 md:mr-[23px] md:h-[42px] md:w-[107px]`}
+                            } mr-[13px] flex h-[32px] w-[60px] cursor-pointer items-center justify-center rounded-[30px] text-white transition-colors duration-200 last:mr-0 md:mr-[23px] md:h-[42px] md:w-[107px]`}
                         >
                             {time}
                         </div>
@@ -75,7 +75,7 @@ const SeatSelection = () => {
                                             : seat.status == SeatStatus.available
                                               ? "cursor-pointer bg-gray-light"
                                               : "cursor-pointer bg-primary-dark"
-                                    } mx-[5px] flex h-[17px] w-[17px] flex-shrink-0 items-center justify-center rounded-full md:mx-[6px] md:h-[19px] md:w-[19px]`}
+                                    } mx-[5px] flex h-[17px] w-[17px] flex-shrink-0 items-center justify-center rounded-full transition-colors duration-200 md:mx-[6px] md:h-[19px] md:w-[19px]`}
                                 ></div>
                             ))}
                         </div>
