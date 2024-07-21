@@ -19,5 +19,10 @@
         height: 73px;
         object-fit: cover;
         border-radius: 5px;
+        
+        @media (max-width: 992px) {
+            width: 75.3px;
+            height: 63px;
+        }
     }
 }

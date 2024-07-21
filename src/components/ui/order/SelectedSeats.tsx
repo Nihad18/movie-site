@@ -33,11 +33,11 @@ const SelectedSeats: React.FC<SelectedSeatsProps> = ({ setShowModal }) => {
     console.log(selectedSeats);
     return (
         <div
-            className='relative grid h-full w-[47%] place-items-center bg-cover bg-center bg-no-repeat'
+            className='w-100% relative grid h-full place-items-center bg-cover bg-center bg-no-repeat lg:w-[47%]'
             style={{ backgroundImage: "url(https://image.tmdb.org/t/p/original//hqDkO0W9uk4aiwzn3pTeLO7NPZD.jpg)" }}
         >
             {activeDate > 0 && activeTime !== "" && selectedSeats.length > 0 && (
-                <div className='relative h-[524px] w-[409px] bg-black text-xl text-white xl:mt-[100px] 2xl:mt-[150px]'>
+                <div className='relative h-[524px] w-[409px] bg-black text-xl text-white mt-[100px] 2xl:mt-[150px]'>
                     <div className='mb-[44px] mt-[41px] text-center'>Selected seats</div>
                     <div className={`${styles.scroller} mx-[6px] h-[32%] overflow-y-auto`}>
                         {selectedSeats.map((selectedSeat: SelectedSeatWithRow) => (
