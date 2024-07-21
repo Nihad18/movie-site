@@ -34,7 +34,7 @@ const MovieList = () => {
                 <div className='mb-[50px] flex items-end justify-between'>
                     <h3 className='text-[25px] font-medium leading-normal'>{slugConvertor(slug ?? "")}</h3>
                 </div>
-                <div className='grid grid-cols-4 gap-x-[25px] gap-y-[61px]'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-[25px] gap-y-[61px]'>
                     {Array.isArray(data?.data?.results) && data?.data?.results?.map((film: any, index: string) => <FilmCard key={index} {...film} />)}
                 </div>
             </div>
