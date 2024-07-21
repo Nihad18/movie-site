@@ -42,9 +42,9 @@ const CellPhoneInput = React.forwardRef<HTMLInputElement, CellPhoneInputProps>((
         <div className={`${props?.label && "h-[80px]"}`}>
             <label htmlFor={props.name} className="text-black font-medium text-[15px]">{props.label}</label>
             <div className="flex items-center gap-[14.45px]">
-                <Input name="prefix" className={`w-[88px] `} defaultValue={"+994"} readOnly />
+                <Input name="prefix" className={`w-[64px] min-[400px]:w-[88px]`} defaultValue={"+994"} readOnly />
                 <Select onValueChange={handleSelectChange}>
-                    <SelectTrigger className={`w-[88px] text-black text-[15px] font-medium shrink-0 ${(meta.error && meta.touched) && (selectedValue.length == 0 && meta.touched) && "border-red-600"}`}>
+                    <SelectTrigger className={`w-[64px] min-[400px]:w-[88px] text-black text-[15px] font-medium shrink-0 ${(meta.error && meta.touched) && (selectedValue.length == 0 && meta.touched) && "border-red-600"}`}>
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent >

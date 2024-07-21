@@ -11,7 +11,7 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(({ className, type, ...props }, ref) => {
     const [field, meta] = useField(props);
     return (
-        <div className={`${props?.label && "h-[80px]"}`}>
+        <div className={`${props?.label ? (props.name === "nameSurname" ? "h-[96px] min-[601px]:h-[80px]" : "h-[80px]") : ""}`}>
             <label htmlFor={props.name} className="text-black font-medium text-[15px]">{props.label}</label>
             <input
                 type={type}
