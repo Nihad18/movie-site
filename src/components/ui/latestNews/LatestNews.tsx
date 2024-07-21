@@ -1,4 +1,6 @@
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import Img from "/movie-poster.png";
+import styles from "./latestNews.module.scss";
 const LatestNews = () => {
     const arr = [
         {
@@ -34,22 +36,24 @@ const LatestNews = () => {
     ];
     return (
         <section className='pb-[101px]'>
-            <div className='px-4 sub-container lg:px-0'>
+            <div className='mx-auto max-w-[1081px] px-4 lg:px-0'>
                 <div className='text-[25px] font-medium text-gray-darker-alt2 dark:text-white'>Latest news</div>
                 <div className='mt-[50px] flex flex-col items-center justify-between lg:flex-row'>
-                    <div className='relative flex h-[304px] w-full items-end sm:h-[457px] sm:w-[558px] lg:pl-[35px]'>
+                    <div className='relative flex h-[304px] w-full items-end pl-[12px] sm:max-w-[558px] lg:h-[457px] lg:pl-[35px]'>
                         <div className='relative z-[2]'>
                             <div className='max-w-[314px] pb-[22px] text-[16px] font-semibold text-white sm:text-[20px]'>{arr[0].title}</div>
                             <div className='max-w-[471px] pb-[52px] text-[12px] font-medium text-gray-lighter-alt5 sm:text-[15px]'>{arr[0].desc}</div>
                         </div>
-                        <img src={arr[0].img} className='absolute left-0 top-0 z-[1] h-full w-full rounded-[5px] bg-cover' />
+                        <div className={styles.image}>
+                            <LazyLoadImage alt={`image`} effect='opacity' src={arr[0].img} className='h-full w-full' />
+                        </div>
                     </div>
-                    <div className='mt-8 h-[400px] w-full sm:w-[472.3px] lg:mt-0'>
+                    <div className='mt-8 h-[400px] w-full sm:max-w-[472.3px] lg:mt-0'>
                         {arr.slice(0, 4).map((item, index) => {
                             return (
                                 <div key={index} className='flex items-center pb-[36px] text-white last:pb-0'>
-                                    <div>
-                                        <img src={item.img} className='mr-[23px] h-[73px] w-[85.3px] rounded-[5px] bg-cover' />
+                                    <div className={styles.images}>
+                                        <LazyLoadImage alt={`image`} effect='opacity' src={item.img} className='h-full w-full' />
                                     </div>
                                     <div>
                                         <div className='pb-[5px] text-[11px] font-light italic text-black dark:text-white'>{item.time}</div>

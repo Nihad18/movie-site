@@ -1,6 +1,7 @@
 import { useState } from "react";
 import MoviePoster from "/movie-poster.png";
 import styles from "./timeline.module.scss";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 const Timeline = () => {
     const histories = [1940, 1950, 1970, 1980, 1990, 2000, 2010];
     const [selectedTime, setSelectedTime] = useState(histories[0]);
@@ -49,9 +50,9 @@ const Timeline = () => {
                             </div>
                         ))}
                     </div>
-                    <div className='flex max-w-[1084px] flex-col items-center justify-between lg:flex-row'>
-                        <div className='mx-5 lg:mx-0'>
-                            <img className='w-full max-w-md lg:max-w-[558px] h-full bg-cover' src={MoviePoster} />
+                    <div className='flex max-w-[1084px] flex-col items-center justify-between md:flex-row'>
+                        <div className={`${styles.image} mx-5 lg:mx-0`}>
+                            <LazyLoadImage alt={`image`} effect='opacity' src={MoviePoster} className='w-full h-full' />                
                         </div>
                         <div className='mx-5 mt-8 max-w-[415px] lg:mx-0 lg:mt-0'>
                             <div className='pb-[6px] text-[11px] font-light text-black dark:text-white'>OPERETTA</div>

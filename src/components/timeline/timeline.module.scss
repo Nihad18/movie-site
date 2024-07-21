@@ -1,4 +1,15 @@
 @import "../../styles/partials/variables.scss";
+.image {
+    width: 100%;
+    max-width: 558px;
+    height: 100%;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
 .lineContainer {
     position: relative;
     margin-top: 20px;
