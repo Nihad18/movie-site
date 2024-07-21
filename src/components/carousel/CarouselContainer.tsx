@@ -32,7 +32,7 @@ export function CarouselContainer() {
                 placeholderSrc='placeholder.jpg'
                 wrapperClassName='carousel-poster-image'
             />
-            <div className='absolute bottom-[128px] h-[1px] w-full bg-[#C0C0C0]'></div>
+            <div className='absolute bottom-[128px] h-[1px] w-full bg-gray-lightest-alt7'></div>
 
             <div className='absolute top-[264px] z-20'>
                 <div onClick={() => setActiveText(true)} className={`${activeText == true ? "active-carousel-text" : "carousel-text"}`}>
