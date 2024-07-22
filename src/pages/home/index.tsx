@@ -1,4 +1,3 @@
-import Timeline from "@/components/timeline/Timeline";
 import { CarouselContainer } from "@/components/carousel/CarouselContainer";
 import SeeMore from "@/components/ui/SeeMore";
 import { useAuth } from "@/context/AuthContext";
@@ -6,6 +5,7 @@ import MovieService from "@/services/MovieService";
 import { useQuery } from "@tanstack/react-query";
 import AboutUs from "@/components/aboutUs";
 import LatestNews from "@/components/latestNews";
+import Timeline from "@/components/timeline";
 
 const Home = () => {
     const user = useAuth();
