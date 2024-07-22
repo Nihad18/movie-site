@@ -36,7 +36,7 @@ const SeatSelection = () => {
                 </div>
             </div>
 
-            <div className='mb-[26px] mt-[32px] h-[1px] max-w-[447px] bg-gray-darkest-alt2 mx-auto md:mb-[46px] md:mt-[52px]'></div>
+            <div className='mx-auto mb-[26px] mt-[32px] h-[1px] max-w-[447px] bg-gray-darkest-alt2 md:mb-[46px] md:mt-[52px]'></div>
 
             <div>
                 <div className='pb-[14px] text-center text-[18px] text-white md:pb-[34px] md:text-[25px]'>Time</div>
@@ -55,11 +55,11 @@ const SeatSelection = () => {
                 </div>
             </div>
 
-            <div className='mb-[104px] mt-[32px] h-[1px] max-w-[638px] bg-gray-darkest-alt2 mx-auto md:mt-[52px]'></div>
+            <div className='mx-auto mb-[134px] mt-[32px] h-[1px] max-w-[638px] bg-gray-darkest-alt2 md:mt-[52px]'></div>
 
             <div className='relative'>
-                <div className='absolute left-[50%] top-[-25%] translate-x-[-50%]'>
-                    <img src='/LIGHT.svg' alt='light' />
+                <div className='absolute top-[-45%] w-full'>
+                    <img src='/LIGHT.svg' className="mx-auto" alt='light' />
                 </div>
                 {seats?.map((row, rowIndex) => (
                     <div className='relative my-[5.5px] flex items-center justify-center' key={rowIndex}>
