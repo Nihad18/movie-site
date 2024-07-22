@@ -4,16 +4,17 @@ import FilmCard from "@/components/ui/filmCard/FilmCard";
 import { useQuery } from "@tanstack/react-query";
 import MovieService from "@/services/MovieService";
 import { useAuth } from "@/context/AuthContext";
+import { AcceptedRoutes } from "@/enums/AcceptedRoutes";
 const MovieList = () => {
-    const user = useAuth()
+    const user = useAuth();
     const { data, isLoading } = useQuery({ queryKey: ["fetchData1"], queryFn: () => MovieService.getAll() });
     if (isLoading) console.log("loading...");
     const { slug } = useParams();
     const navigate = useNavigate();
-    const acceptedRoutes: string[] = ["curently-playing", "coming-soon"];
+    const acceptedRoutes: string[] = [AcceptedRoutes.CURENTLY_PLAYING, AcceptedRoutes.COMING_SOON, AcceptedRoutes.ALREADY_WATCHED_MOVIES];
 
     if (user?.token) {
-        acceptedRoutes.push("already-watched-movies")
+        acceptedRoutes.push(AcceptedRoutes.ALREADY_WATCHED_MOVIES);
     }
 
     useEffect(() => {
@@ -34,7 +35,7 @@ const MovieList = () => {
                 <div className='mb-[50px] flex items-end justify-between'>
                     <h3 className='text-[25px] font-medium leading-normal'>{slugConvertor(slug ?? "")}</h3>
                 </div>
-                <div className='grid grid-cols-1 min-[480px]:grid-cols-2 min-[880px]:grid-cols-4 gap-x-[25px] gap-y-[61px]'>
+                <div className='grid grid-cols-1 gap-x-[25px] gap-y-[61px] min-[480px]:grid-cols-2 min-[880px]:grid-cols-4'>
                     {Array.isArray(data?.data?.results) && data?.data?.results?.map((film: any, index: string) => <FilmCard key={index} {...film} />)}
                 </div>
             </div>
