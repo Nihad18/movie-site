@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
-import Header from "@/components/header/Header";
 import { DataContext } from "@/context/MainContext";
 import { useContext } from "react";
+import Header from "@/components/header";
 
 const MainLayout = () => {
     const { theme } = useContext(DataContext);

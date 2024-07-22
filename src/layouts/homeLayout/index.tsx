@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
-import Header from "@/components/header/Header";
-import Footer from "@/components/footer/Footer";
 import { useContext } from "react";
 import { DataContext } from "@/context/MainContext";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 const HomeLayout = () => {
     const { theme } = useContext(DataContext);

@@ -1,10 +1,10 @@
 import { Outlet, useNavigate } from "react-router-dom";
-import Header from "@/components/header/Header";
 import { DataContext } from "@/context/MainContext";
 import { useContext, useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
 import styles from "./authLayout.module.scss";
 import LazyLoadBackgroundImage from "@/components/LazyLoadBackgroundImage ";
+import Header from "@/components/header";
 const AuthLayout = () => {
     const navigate = useNavigate();
     const user = useAuth();
