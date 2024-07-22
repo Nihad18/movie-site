@@ -1,5 +1,5 @@
 import { HttpClient } from "@/services/HttpClient";
-import { FilmDataType } from "@/types/FilmDataTypes";
+import { MovieDataType } from "@/types/MovieDataTypes";
 
 export default class MovieService {
     static basePath = "/trending/all/day";
@@ -10,9 +10,9 @@ export default class MovieService {
         return HttpClient.get<any>(this.basePath, page);
     }
     static getUpComing() {
-        return HttpClient.get<FilmDataType>(this.upComingPath);
+        return HttpClient.get<MovieDataType>(this.upComingPath);
     }
     static getOnTheAir() {
-        return HttpClient.get<FilmDataType>(this.onTheAir);
+        return HttpClient.get<MovieDataType>(this.onTheAir);
     }
 }
