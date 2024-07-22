@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from "react";
 import { DataContext } from "@/context/MainContext";
-import { Button } from "../Button";
 import styles from "./selectedSeats.module.scss";
 import { SeatStatus } from "@/enums/SeatStatus";
 import { Row, Seat, SelectedSeatWithRow } from "@/types/SeatDataTypes";
+import { Button } from "../ui/Button";
 interface SelectedSeatsProps {
     setShowModal: (argument: boolean) => void;
 }

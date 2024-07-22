@@ -1,13 +1,13 @@
-import MovieList from "@/pages/movieList/MovieList";
 import { RouteObject } from "react-router-dom";
 import MainLayout from "@/layouts/mainLayout";
-import Order from "@/pages/order/Order";
 import HomeLayout from "@/layouts/homeLayout";
 import AuthLayout from "@/layouts/authLayout";
 import Home from "@/pages/home";
 import NotFound from "@/pages/notFound";
 import Login from "@/pages/auth/login";
 import Register from "@/pages/auth/register";
+import MovieList from "@/pages/movieList";
+import Order from "@/pages/order";
 
 export const routes: RouteObject[] = [
     {
