@@ -2,8 +2,8 @@ import { useState } from "react";
 import styles from "./order.module.scss"
 import { Button } from "@/components/ui/Button";
 import OrderModal from "@/components/orderModal";
-import SelectedSeats from "@/components/order/SelectedSeats";
-import SeatSelection from "@/components/order/SeatSelection";
+import SelectedSeats from "@/components/selectedSeats";
+import SeatSelection from "@/components/seatSelection";
 
 const Order = () => {
     const [showModal, setShowModal] = useState<boolean>(false)
