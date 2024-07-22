@@ -1,6 +1,6 @@
 import Timeline from "@/components/timeline/Timeline";
 import { CarouselContainer } from "@/components/carousel/CarouselContainer";
-import LatestNews from "@/components/ui/latestNews/LatestNews";
+import LatestNews from "@/components/latestNews/LatestNews";
 import SeeMore from "@/components/ui/SeeMore";
 import { useAuth } from "@/context/AuthContext";
 import MovieService from "@/services/MovieService";

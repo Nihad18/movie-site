@@ -5,7 +5,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { type EmblaCarouselType as CarouselApi } from "embla-carousel";
 
 import { cn } from "@/lib/utils";
-import { CarouselProps, CarouselContextProps } from "@/types/carouselTypes";
+import { CarouselProps, CarouselContextProps } from "@/types/CarouselTypes";
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null);
 

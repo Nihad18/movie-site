@@ -1,5 +1,5 @@
 import { FooterLinksData } from "@/types/Common";
-import { SeatsData } from "@/types/seatDataTypes";
+import { SeatsData } from "@/types/SeatDataTypes";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 

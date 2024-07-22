@@ -1,6 +1,6 @@
 import { seatData } from "@/lib/utils";
 import React, { createContext, useState, ReactNode } from "react";
-import { SeatsData, SelectedSeatWithRow } from "@/types/seatDataTypes";
+import { SeatsData, SelectedSeatWithRow } from "@/types/SeatDataTypes";
 interface DataContextProps {
     theme: string;
     changeTheme: () => void;

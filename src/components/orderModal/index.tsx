@@ -10,7 +10,7 @@ import { DataContext } from "@/context/MainContext";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import classNames from "classnames";
 import { CellPhoneInput } from "../ui/CellPhoneInput";
-import { Row, Seat, SelectedSeatWithRow } from "@/types/seatDataTypes";
+import { Row, Seat, SelectedSeatWithRow } from "@/types/SeatDataTypes";
 import { SeatStatus } from "@/enums/SeatStatus";
 
 interface OrderModalProps {
