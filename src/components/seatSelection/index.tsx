@@ -10,10 +10,10 @@ const SeatSelection = () => {
         const newSeats = [...seats];
         const selectedSeat = newSeats[rowIndex].seats[seatIndex];
 
-        if (selectedSeat.status == SeatStatus.AVAILABLE) {
-            selectedSeat.status = SeatStatus.SELECTED;
-        } else if (selectedSeat.status == SeatStatus.SELECTED) {
-            selectedSeat.status = SeatStatus.AVAILABLE;
+        if (selectedSeat.status == SeatStatus.Available) {
+            selectedSeat.status = SeatStatus.Selected;
+        } else if (selectedSeat.status == SeatStatus.Selected) {
+            selectedSeat.status = SeatStatus.Available;
         }
         setSeats([...newSeats]);
     };
@@ -70,9 +70,9 @@ const SeatSelection = () => {
                                     key={seatIndex}
                                     onClick={() => handleSeatSelection(rowIndex, seatIndex)}
                                     className={`${
-                                        seat.status == SeatStatus.BOOKED
+                                        seat.status == SeatStatus.Booked
                                             ? "cursor-not-allowed bg-gray-darker-alt4"
-                                            : seat.status == SeatStatus.AVAILABLE
+                                            : seat.status == SeatStatus.Available
                                               ? "cursor-pointer bg-gray-light"
                                               : "cursor-pointer bg-primary-dark"
                                     } mx-[5px] flex h-[17px] w-[17px] flex-shrink-0 items-center justify-center rounded-full transition-colors duration-200 md:mx-[6px] md:h-[19px] md:w-[19px]`}

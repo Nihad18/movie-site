@@ -1,6 +1,6 @@
 enum SeatStatus {
-    BOOKED = "booked",
-    AVAILABLE = "available",
-    SELECTED = "selected",
+    Booked = "booked",
+    Available = "available",
+    Selected = "selected",
 }
 export { SeatStatus };

@@ -12,15 +12,15 @@ const SelectedSeats: React.FC<SelectedSeatsProps> = ({ setShowModal }) => {
     const handleClick = (rowId: number, seatId: number) => {
         const newSeats = [...seats];
         const selectedSeat = newSeats.find((row: Row) => row.rowId === rowId)?.seats.find((seat: Seat) => seat.seatId === seatId);
-        if (selectedSeat && selectedSeat.status === SeatStatus.SELECTED) {
-            selectedSeat.status = SeatStatus.AVAILABLE;
+        if (selectedSeat && selectedSeat.status === SeatStatus.Selected) {
+            selectedSeat.status = SeatStatus.Available;
         }
         setSeats([...newSeats]);
     };
     useEffect(() => {
         const selectedSeats = seats.flatMap((row: Row) =>
             row.seats
-                .filter((seat: Seat) => seat.status === SeatStatus.SELECTED)
+                .filter((seat: Seat) => seat.status === SeatStatus.Selected)
                 .map((seat: Seat) => ({
                     rowId: row.rowId,
                     row: row.row,

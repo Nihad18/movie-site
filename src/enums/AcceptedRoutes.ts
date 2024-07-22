@@ -1,7 +1,7 @@
 enum AcceptedRoutes {
-    CURENTLY_PLAYING = "curently-playing",
-    COMING_SOON = "coming-soon",
-    ALREADY_WATCHED_MOVIES = "already-watched-movies",
+    CurrentlyPlaying = "curently-playing",
+    ComingSoon = "coming-soon",
+    AlreadyWatchedMovies = "already-watched-movies",
 }
 
 export { AcceptedRoutes };
