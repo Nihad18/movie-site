@@ -30,6 +30,14 @@ export function parseDate(inputDate: string | undefined) {
     return `${day} ${month}`;
 }
 
+export function slugConvertor (slug: string) {
+    const words = slug.split("-");
+    let firstWord = words.shift() ?? "";
+    const capitalizedFirstWord = firstWord[0].toUpperCase() + firstWord.slice(1).toLowerCase();
+    const result = capitalizedFirstWord + " " + words.map((word) => word.toLowerCase()).join(" ");
+    return result;
+};
+
 export const currentYear = new Date().getFullYear();
 
 export const years = Array.from({ length: currentYear - 1970 + 1 }, (_, i) => currentYear - i);

@@ -6,6 +6,7 @@ import { useAuth } from "@/context/AuthContext";
 import { AcceptedRoutes } from "@/enums/AcceptedRoutes";
 import { MovieResultType } from "@/types/MovieDataTypes";
 import MovieCard from "@/components/movieCard";
+import { slugConvertor } from "@/lib/utils";
 const MovieList = () => {
     const user = useAuth();
     const { data, isLoading } = useQuery({ queryKey: ["fetchData1"], queryFn: () => MovieService.getAll() });
@@ -23,13 +24,6 @@ const MovieList = () => {
         if (slug && !acceptedRoutes.includes(slug)) navigate("/not-found");
     }, [slug]);
 
-    const slugConvertor = (slug: string) => {
-        const words = slug.split("-");
-        let firstWord = words.shift() ?? "";
-        const capitalizedFirstWord = firstWord[0].toUpperCase() + firstWord.slice(1).toLowerCase();
-        const result = capitalizedFirstWord + " " + words.map((word) => word.toLowerCase()).join(" ");
-        return result;
-    };
     return (
         <div className='pt pb-[100px] pt-[86px]'>
             <div className='container'>
