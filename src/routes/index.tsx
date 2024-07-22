@@ -1,13 +1,13 @@
-import Home from "@/pages/home/Home";
-import Login from "@/pages/auth/login/Login";
 import MovieList from "@/pages/movieList/MovieList";
-import NotFound from "@/pages/notFound/NotFound";
 import { RouteObject } from "react-router-dom";
-import Register from "@/pages/auth/register/Register";
 import MainLayout from "@/layouts/mainLayout";
 import Order from "@/pages/order/Order";
 import HomeLayout from "@/layouts/homeLayout";
 import AuthLayout from "@/layouts/authLayout";
+import Home from "@/pages/home";
+import NotFound from "@/pages/notFound";
+import Login from "@/pages/auth/login";
+import Register from "@/pages/auth/register";
 
 export const routes: RouteObject[] = [
     {
