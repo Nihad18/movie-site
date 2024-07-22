@@ -47,7 +47,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ setShowModal, setCongratsModal 
             ...row,
             seats: row.seats.map((seat: Seat) =>
                 selectedSeats.some((selectedSeat: SelectedSeatWithRow) => selectedSeat.seat.seatId === seat.seatId)
-                    ? { ...seat, status: SeatStatus.BOOKED }
+                    ? { ...seat, status: SeatStatus.Booked }
                     : seat,
             ),
         }));
