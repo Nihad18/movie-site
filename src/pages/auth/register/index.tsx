@@ -1,38 +1,41 @@
 import { Input } from "@/components/ui/Input";
-import styles from "./login.module.scss";
+import styles from "./register.module.scss";
 import { Button } from "@/components/ui/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Formik } from "formik";
-import { LoginSchema } from "@/validations";
-import { useAuth } from "@/context/AuthContext";
-import { LoginData } from "@/types/authTypes";
+import { RegisterSchema } from "@/validations";
+import { RegisterData } from "@/types/AuthTypes";
+import DatePicker from "@/components/ui/datePicker/DatePicker";
 
-const Login = () => {
-    const initialValues: LoginData = { email: "", password: "" };
-
-    const auth = useAuth();
+const Register = () => {
+    const initialValues: RegisterData = { name: "", surname: "", email: "", dateOfBirth: "", password: "" };
+    const navigate = useNavigate();
 
     return (
         <div className={styles.login}>
             <div className={`${styles.wrapper}`}>
-                <h2 className={`text-black ${styles.title} mb-5`}>Login</h2>
+                <h2 className={`text-black ${styles.title} mb-5`}>Sign Up</h2>
                 <Formik
                     initialValues={initialValues}
                     onSubmit={(values, actions) => {
                         setTimeout(() => {
-                            auth?.loginAction(values);
+                            alert(JSON.stringify(values, null, 2));
                             actions.setSubmitting(false);
+                            navigate("/login");
                         }, 3000);
                     }}
-                    validationSchema={LoginSchema}
+                    validationSchema={RegisterSchema}
                 >
                     {(props) => (
                         <form className='grid gap-y-5' onSubmit={props.handleSubmit} noValidate>
+                            <Input name='name' type='text' id='name' placeholder='Name' />
+                            <Input name='surname' type='text' id='surname' placeholder='Surname' />
                             <Input name='email' type='email' id='email' placeholder='Email' />
+                            <DatePicker name='dateOfBirth' placeholder='Birth date' />
                             <Input name='password' type='password' id='password' placeholder='Password' />
                             <div className='relative'>
                                 <Button className='w-full' type='submit' disabled={props.isSubmitting}>
-                                    <span className={`${props.isSubmitting ? "hidden" : "block"}`}>Login</span>
+                                    <span className={`${props.isSubmitting ? "hidden" : "block"}`}>Sign Up</span>
                                 </Button>
                                 <div className={`spinner-container ${props.isSubmitting ? "block" : "hidden"} grid place-items-center`}>
                                     <div className={"dot-spinner"}>
@@ -50,16 +53,16 @@ const Login = () => {
                         </form>
                     )}
                 </Formik>
-                <div className='mt-3 text-center px-3 md:px-0'>
-                    Don't have an account yet?{" "}
+                <div className='mt-3 text-center'>
+                    Already have an account?{" "}
                     <Link
                         className='font-semibold text-blue-600'
-                        data-testid='register-link'
-                        data-track-action='click_register_from_sign_in_page'
+                        data-testid='login-link'
+                        data-track-action='click_login_from_sign_in_page'
                         data-track-label='free_registration'
-                        to='/register'
+                        to='/login'
                     >
-                        Register now
+                        Login
                     </Link>
                 </div>
             </div>
@@ -67,4 +70,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;

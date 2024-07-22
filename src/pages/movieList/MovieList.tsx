@@ -1,10 +1,11 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
-import FilmCard from "@/components/ui/filmCard/FilmCard";
 import { useQuery } from "@tanstack/react-query";
 import MovieService from "@/services/MovieService";
 import { useAuth } from "@/context/AuthContext";
 import { AcceptedRoutes } from "@/enums/AcceptedRoutes";
+import MovieCard from "@/components/ui/movieCard";
+import { MovieResultType } from "@/types/MovieDataTypes";
 const MovieList = () => {
     const user = useAuth();
     const { data, isLoading } = useQuery({ queryKey: ["fetchData1"], queryFn: () => MovieService.getAll() });
@@ -36,7 +37,7 @@ const MovieList = () => {
                     <h3 className='text-[25px] font-medium leading-normal'>{slugConvertor(slug ?? "")}</h3>
                 </div>
                 <div className='grid grid-cols-1 gap-x-[25px] gap-y-[61px] min-[480px]:grid-cols-2 min-[880px]:grid-cols-4'>
-                    {Array.isArray(data?.data?.results) && data?.data?.results?.map((film: any, index: string) => <FilmCard key={index} {...film} />)}
+                    {Array.isArray(data?.data?.results) && data?.data?.results?.map((film: MovieResultType) => <MovieCard key={film.id} {...film} />)}
                 </div>
             </div>
         </div>
