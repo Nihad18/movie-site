@@ -1,13 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import FilmCard from "./filmCard/FilmCard";
-import { FilmDataType } from "@/types/filmDataTypes";
-
-interface SeeMoreProps {
-    name: string;
-    link: string;
-    data: FilmDataType | undefined;
-}
+import MovieCard from "./movieCard";
+import { SeeMoreProps } from "@/types/Common";
 
 const SeeMore: React.FC<SeeMoreProps> = ({ name, link, data }) => {
     return (
@@ -25,7 +19,7 @@ const SeeMore: React.FC<SeeMoreProps> = ({ name, link, data }) => {
                         </svg>
                     </Link>
                 </div>
-                <div className='grid grid-cols-1 min-[480px]:grid-cols-2 min-[880px]:grid-cols-4 gap-[26px]'>{data?.results.slice(0, 4).map((film, index) => <FilmCard key={index} {...film} />)}</div>
+                <div className='grid grid-cols-1 min-[480px]:grid-cols-2 min-[880px]:grid-cols-4 gap-[26px]'>{data?.results.slice(0, 4).map((film) => <MovieCard key={film.id} {...film} />)}</div>
             </div>
         </div>
     );

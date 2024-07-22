@@ -1,11 +1,11 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import styles from "./filmCard.module.scss";
+import styles from "./movieCard.module.scss";
 import React from "react";
-import { FilmResultType } from "@/types/filmDataTypes";
-import { filmDate } from "@/lib/utils";
 import { Link } from "react-router-dom";
+import { parseDate } from "@/lib/utils";
+import { MovieResultType } from "@/types/MovieDataTypes";
 
-const FilmCard: React.FC<FilmResultType> = ({ name, title, poster_path, first_air_date, release_date, adult, original_language }) => {
+const MovieCard: React.FC<MovieResultType> = ({ name, title, poster_path, first_air_date, release_date, adult, original_language }) => {
     return (
         <Link to='/order' className={styles.card}>
             <LazyLoadImage
@@ -16,7 +16,7 @@ const FilmCard: React.FC<FilmResultType> = ({ name, title, poster_path, first_ai
             />
             <div className={styles.details}>
                 <h4 className={styles.name}>{name || title}</h4>
-                <p className={styles.date}>{filmDate(release_date || first_air_date)}</p>
+                <p className={styles.date}>{parseDate(release_date || first_air_date)}</p>
                 <p className={styles["age-limit"]}>{adult ? "18+" : "6+"}</p>
                 <div className={styles.languages}>
                     {/* {languages.map((language, index) => (
@@ -29,4 +29,4 @@ const FilmCard: React.FC<FilmResultType> = ({ name, title, poster_path, first_ai
     );
 };
 
-export default FilmCard;
+export default MovieCard;

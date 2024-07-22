@@ -4,7 +4,7 @@ import styles from "./orderModal.module.scss";
 import { OrderFormSchema } from "@/validations";
 import { Input } from "../ui/Input";
 import { Button } from "../ui/Button";
-import { OrderFormData } from "@/types/common";
+import { OrderFormData } from "@/types/Common";
 import { useAuth } from "@/context/AuthContext";
 import { DataContext } from "@/context/MainContext";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
