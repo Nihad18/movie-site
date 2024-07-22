@@ -1,5 +1,5 @@
 import { HttpClient } from "@/services/HttpClient";
-import { FilmDataType } from "@/types/filmDataTypes";
+import { FilmDataType } from "@/types/FilmDataTypes";
 
 export default class MovieService {
     static basePath = "/trending/all/day";
