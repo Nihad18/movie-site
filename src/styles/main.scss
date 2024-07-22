@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap");
 @import "./partials/variables.scss";
 @import "./partials/mixin.scss";
-@import "./partials/extend.scss";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -56,9 +55,6 @@ ul {
     margin: 0 auto;
     max-width: 1352px;
     padding: 0 16px;
-    @media (min-width: 1920px) {
-        max-width: 1596px;
-    }
 }
 
 .sub-container {
