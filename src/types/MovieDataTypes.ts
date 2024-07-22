@@ -1,4 +1,4 @@
-export type FilmListData = {
+export type MovieListData = {
     name: string;
     image: string;
     date: string;
@@ -6,7 +6,7 @@ export type FilmListData = {
     languages: { lang: string }[];
 };
 
-export type FilmDataType = {
+export type MovieDataType = {
     dates: { maximum: string; minimum: string };
     page: number;
     results: {
@@ -30,7 +30,7 @@ export type FilmDataType = {
     total_results: number;
 };
 
-export type FilmResultType = {
+export type MovieResultType = {
     adult: boolean;
     backdrop_path: string;
     genre_ids: number[];
