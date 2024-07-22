@@ -1,4 +1,9 @@
 @import "../../styles/partials/variables.scss";
+.container{
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
 .content {
     animation: fadeIn 1s ease-in-out;
     .main_wrapper {
