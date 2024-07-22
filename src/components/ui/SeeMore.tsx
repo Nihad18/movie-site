@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import MovieCard from "./movieCard";
 import { SeeMoreProps } from "@/types/Common";
+import MovieCard from "../movieCard";
 
 const SeeMore: React.FC<SeeMoreProps> = ({ name, link, data }) => {
     return (

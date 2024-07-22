@@ -1,0 +1,118 @@
+@import "../../styles/partials/variables.scss";
+@import "../../styles/partials/mixin.scss";
+
+.header {
+    padding-top: 21.5px;
+    padding-bottom: 28.03px;
+    width: 100%;
+    @include Position($pos: fixed, $top: 0, $left: 0, $right: 0, $z-index: 49);
+    background-image: $header-gradient;
+}
+
+.logoutBtn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: 0.3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: $primary;
+    .sign {
+        width: 100%;
+        transition-duration: 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg {
+            width: 17px;
+            path {
+                fill: white;
+            }
+        }
+    }
+
+    .text {
+        position: absolute;
+        right: 0%;
+        width: 0%;
+        opacity: 0;
+        color: white;
+        font-size: 16px;
+        font-weight: 500;
+        transition-duration: 0.3s;
+    }
+    &:hover {
+        width: 125px;
+        border-radius: 40px;
+        transition-duration: 0.3s;
+        & .sign {
+            width: 30%;
+            transition-duration: 0.3s;
+            padding-left: 20px;
+        }
+        & .text {
+            opacity: 1;
+            width: 70%;
+            transition-duration: 0.3s;
+            padding-right: 10px;
+        }
+    }
+    &:active {
+        transform: translate(2px, 2px);
+    }
+}
+
+.switch {
+    --secondary-container: #121212;
+    --primary: #e5e5e5;
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 47px;
+    height: 21px;
+
+    input {
+        display: none;
+        opacity: 0;
+        width: 0;
+        height: 0;
+        &:checked + .slider {
+            background-color: var(--secondary-container);
+            &::before {
+                background-color: var(--primary);
+                transform: translateX(25px);
+            }
+        }
+        &:focus + .slider {
+            box-shadow: 0 0 1px var(--secondary-container);
+        }
+    }
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--primary);
+        transition: 0.2s;
+        border-radius: 30px;
+        &:before {
+            position: absolute;
+            content: "";
+            height: 17px;
+            width: 17px;
+            border-radius: 50%;
+            left: 2px;
+            bottom: 2px;
+            background-color: var(--secondary-container);
+            transition: 0.4s;
+        }
+    }
+}

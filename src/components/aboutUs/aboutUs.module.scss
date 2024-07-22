@@ -1,0 +1,63 @@
+@import "../../styles/partials/variables.scss";
+
+.image {
+    width: 100%;
+    max-width: 420px;
+    padding-top: 30px;
+    @media (min-width: 768px) {
+        padding-top: 0;
+        max-width: none;
+    }
+    @media (min-width: 992px) {
+        width: 50%;
+    }
+}
+
+.content {
+    width: 100%;
+    max-width: 420px;
+    padding-bottom: 30px;
+    @media (min-width: 768px) {
+        padding-bottom: 0;
+        max-width: none;
+    }
+    @media (min-width: 992px) {
+        max-width: 400px;
+        width: 100%;
+    }
+}
+
+.date {
+    display: block;
+    margin-top: 10px;
+}
+
+.title {
+    font-size: 25px;
+    line-height: 24px;
+    font-weight: 500;
+
+    .date {
+        font-weight: 300;
+        line-height: 1.5;
+        font-size: 11px;
+        letter-spacing: 0.1px;
+    }
+}
+
+.description {
+    position: relative;
+    color: $gray-normal-alt2;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-top: 30px;
+    p {
+        font-size: 14px;
+    }
+    svg {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        cursor: pointer;
+    }
+}

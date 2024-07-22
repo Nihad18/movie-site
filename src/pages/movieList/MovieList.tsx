@@ -4,8 +4,8 @@ import { useQuery } from "@tanstack/react-query";
 import MovieService from "@/services/MovieService";
 import { useAuth } from "@/context/AuthContext";
 import { AcceptedRoutes } from "@/enums/AcceptedRoutes";
-import MovieCard from "@/components/ui/movieCard";
 import { MovieResultType } from "@/types/MovieDataTypes";
+import MovieCard from "@/components/movieCard";
 const MovieList = () => {
     const user = useAuth();
     const { data, isLoading } = useQuery({ queryKey: ["fetchData1"], queryFn: () => MovieService.getAll() });
