@@ -11,7 +11,7 @@ const MovieList = () => {
     if (isLoading) console.log("loading...");
     const { slug } = useParams();
     const navigate = useNavigate();
-    const acceptedRoutes: string[] = [AcceptedRoutes.CURENTLY_PLAYING, AcceptedRoutes.COMING_SOON, AcceptedRoutes.ALREADY_WATCHED_MOVIES];
+    const acceptedRoutes: string[] = [AcceptedRoutes.CURENTLY_PLAYING, AcceptedRoutes.COMING_SOON];
 
     if (user?.token) {
         acceptedRoutes.push(AcceptedRoutes.ALREADY_WATCHED_MOVIES);
