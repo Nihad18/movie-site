@@ -33,11 +33,11 @@ const SelectedSeats: React.FC<SelectedSeatsProps> = ({ setShowModal }) => {
     console.log(selectedSeats);
     return (
         <div
-            className='w-100% relative grid h-full place-items-center bg-cover bg-center bg-no-repeat lg:w-[47%]'
+            className='w-full relative grid min-h-screen place-items-center bg-cover bg-center bg-no-repeat lg:w-[47%]'
             style={{ backgroundImage: "url(https://image.tmdb.org/t/p/original//hqDkO0W9uk4aiwzn3pTeLO7NPZD.jpg)" }}
         >
             {activeDate > 0 && activeTime !== "" && selectedSeats.length > 0 && (
-                <div className='relative h-[524px] w-[90%] sm:w-[409px] bg-black text-xl text-white mt-[100px] 2xl:mt-[150px]'>
+                <div className='relative mt-[100px] h-[524px] w-[90%] bg-black text-xl text-white sm:w-[409px] 2xl:mt-[150px]'>
                     <div className='mb-[44px] mt-[41px] text-center'>Selected seats</div>
                     <div className={`${styles.scroller} mx-[6px] h-[32%] overflow-y-auto`}>
                         {selectedSeats.map((selectedSeat: SelectedSeatWithRow) => (
@@ -65,7 +65,7 @@ const SelectedSeats: React.FC<SelectedSeatsProps> = ({ setShowModal }) => {
                                 onClick={() => setShowModal(true)}
                                 className='h-[50px] w-[250px] rounded-[10px] bg-primary-dark text-[20px] font-medium text-white'
                             >
-                                Purchase
+                                Purchase <span className='pl-2'>({`${selectedSeats.length * 24}$`})</span>
                             </Button>
                         </div>
                         <div className='text-center text-[15px] font-medium text-gray-dark'>Time left to purchase: 10:15</div>

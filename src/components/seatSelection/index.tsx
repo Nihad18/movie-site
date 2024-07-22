@@ -18,7 +18,7 @@ const SeatSelection = () => {
         setSeats([...newSeats]);
     };
     return (
-        <div className='h-full w-[100%] bg-black lg:w-[53%] lg:overflow-y-auto'>
+        <div className='min-h-screen w-full bg-black lg:w-[53%] lg:overflow-y-auto'>
             <div>
                 <div className='pb-[14px] pt-[30px] text-center text-[18px] text-white md:pb-[34px] md:pt-[80px] md:text-[25px]'>Date</div>
                 <div className='flex justify-center'>
@@ -36,7 +36,7 @@ const SeatSelection = () => {
                 </div>
             </div>
 
-            <div className='mx-5 mb-[26px] mt-[32px] h-[1px] max-w-[447px] bg-gray-darkest-alt2 md:mx-auto md:mb-[46px] md:mt-[52px]'></div>
+            <div className='mb-[26px] mt-[32px] h-[1px] max-w-[447px] bg-gray-darkest-alt2 mx-auto md:mb-[46px] md:mt-[52px]'></div>
 
             <div>
                 <div className='pb-[14px] text-center text-[18px] text-white md:pb-[34px] md:text-[25px]'>Time</div>
@@ -55,7 +55,7 @@ const SeatSelection = () => {
                 </div>
             </div>
 
-            <div className='mx-5 mb-[104px] mt-[32px] h-[1px] max-w-[638px] bg-gray-darkest-alt2 md:mx-auto md:mt-[52px]'></div>
+            <div className='mb-[104px] mt-[32px] h-[1px] max-w-[638px] bg-gray-darkest-alt2 mx-auto md:mt-[52px]'></div>
 
             <div className='relative'>
                 <div className='absolute left-[50%] top-[-25%] translate-x-[-50%]'>
