@@ -2,6 +2,7 @@ import { FooterLinksData } from "@/types/Common";
 import { SeatsData } from "@/types/SeatDataTypes";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import Img from "/movie-poster.png";
 
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
@@ -193,3 +194,36 @@ export const seatData : SeatsData = [
 export const dates = [21, 22, 23, 24, 25, 26, 27];
 
 export const times = ["13:15", "15:15", "18:15", "20:30", "22:30"];
+
+export const latestNewsData = [
+    {
+        title: "New American films on the screen of Nizami Cinema Center",
+        desc: `US-produced "Independence Day: Revival" at Nizami Cinema Center. 
+        "Neighbours. 2 in wartime ”films have been shown.
+         "Independence Day: Revival" is based on a screenplay by Nicholas Wright 
+         and directed by Roland Emmerich in the genres of science fiction, adventure
+          and war. Slogan: “We had 20 years to prepare.`,
+        time: "25.06.2022",
+        img: Img,
+    },
+    {
+        title: "New American films on the screen of Nizami Cinema Center",
+        time: "25.06.2022",
+        img: Img,
+    },
+    {
+        title: "New American films on the screen of Nizami Cinema Center",
+        time: "25.06.2022",
+        img: Img,
+    },
+    {
+        title: "New American films on the screen of Nizami Cinema Center",
+        time: "25.06.2022",
+        img: Img,
+    },
+    {
+        title: "New American films on the screen of Nizami Cinema Center",
+        time: "25.06.2022",
+        img: Img,
+    },
+];
