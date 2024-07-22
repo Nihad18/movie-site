@@ -1,4 +1,4 @@
-import { CarouselContainer } from "@/components/carousel/CarouselContainer";
+import { CarouselContainer } from "@/components/ui/carousel/CarouselContainer";
 import SeeMore from "@/components/ui/SeeMore";
 import { useAuth } from "@/context/AuthContext";
 import MovieService from "@/services/MovieService";

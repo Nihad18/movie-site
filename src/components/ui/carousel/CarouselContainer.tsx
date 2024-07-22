@@ -3,8 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 import { useContext, useState } from "react";
 import { DataContext } from "@/context/MainContext";
 
-import { Card, CardContent } from "@/components/carousel/Card";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/carousel/Carousel";
+import { Card, CardContent } from "@/components/ui/carousel/Card";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel/Carousel";
 
 import MovieService from "@/services/MovieService";
 
