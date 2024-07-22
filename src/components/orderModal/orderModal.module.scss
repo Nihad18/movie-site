@@ -17,9 +17,6 @@
 
         background-color: $white-95;
         border-radius: 5px;
-        @media (min-width: 1920px) {
-            max-height: 749px;
-        }
         .closeBtn {
             position: absolute;
             top: 27px;
