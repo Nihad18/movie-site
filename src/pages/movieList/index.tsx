@@ -7,10 +7,11 @@ import { AcceptedRoutes } from "@/enums/AcceptedRoutes";
 import { MovieResultType } from "@/types/MovieDataTypes";
 import MovieCard from "@/components/movieCard";
 import { slugConvertor } from "@/lib/utils";
+import { Loading } from "@/components/ui/Loading";
+import { Error } from "@/components/ui/Error";
 const MovieList = () => {
     const user = useAuth();
-    const { data, isLoading } = useQuery({ queryKey: ["fetchData1"], queryFn: () => MovieService.getAll() });
-    if (isLoading) console.log("loading...");
+    const { data, isLoading, error } = useQuery({ queryKey: ["fetchData1"], queryFn: () => MovieService.getAll() });
     const { slug } = useParams();
     const navigate = useNavigate();
     const acceptedRoutes: string[] = [AcceptedRoutes.CurrentlyPlaying, AcceptedRoutes.ComingSoon];
@@ -24,6 +25,8 @@ const MovieList = () => {
         if (slug && !acceptedRoutes.includes(slug)) navigate("/not-found");
     }, [slug]);
 
+    if (isLoading) return <Loading />;
+    if (error) return <Error />;
     return (
         <div className='pt pb-[100px] pt-[86px]'>
             <div className='container'>
