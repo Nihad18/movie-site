@@ -93,7 +93,7 @@ button {
 
 .carousel-text,
 .active-carousel-text {
-    @apply absolute z-10 flex cursor-pointer items-center justify-center italic leading-[24px] text-white transition-all;
+    @apply absolute flex cursor-pointer items-center justify-center italic leading-[24px] text-white transition-all;
 
     &:last-child {
         div {
