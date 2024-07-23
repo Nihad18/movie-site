@@ -1,13 +1,25 @@
 @import "../../styles/partials/variables.scss";
 
-.scroller {
-    &::-webkit-scrollbar {
-        background-color: $black;
-        width: 8px;
-        border-radius: 4px;
+.selected-seats-container {
+    @apply relative grid min-h-screen w-full place-items-center bg-cover bg-center bg-no-repeat lg:w-[47%];
+
+    .selected-seats {
+        @apply relative mt-[100px] h-[524px] w-[90%] bg-black text-xl text-white sm:w-[409px] 2xl:mt-[150px];
     }
-    &::-webkit-scrollbar-thumb {
-        background-color: $red;
-        border-radius: 4px;
+
+    .button {
+        @apply h-[50px] w-[250px] rounded-[10px] bg-primary-dark text-[20px] font-medium text-white;
+    }
+
+    .scroller {
+        &::-webkit-scrollbar {
+            background-color: $black;
+            width: 8px;
+            border-radius: 4px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: $red;
+            border-radius: 4px;
+        }
     }
 }

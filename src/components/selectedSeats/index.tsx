@@ -33,11 +33,11 @@ const SelectedSeats: React.FC<SelectedSeatsProps> = ({ setShowModal }) => {
     console.log(selectedSeats);
     return (
         <div
-            className='w-full relative grid min-h-screen place-items-center bg-cover bg-center bg-no-repeat lg:w-[47%]'
+            className={styles["selected-seats-container"]}
             style={{ backgroundImage: "url(https://image.tmdb.org/t/p/original//hqDkO0W9uk4aiwzn3pTeLO7NPZD.jpg)" }}
         >
             {activeDate > 0 && activeTime !== "" && selectedSeats.length > 0 && (
-                <div className='relative mt-[100px] h-[524px] w-[90%] bg-black text-xl text-white sm:w-[409px] 2xl:mt-[150px]'>
+                <div className={styles["selected-seats"]}>
                     <div className='mb-[44px] mt-[41px] text-center'>Selected seats</div>
                     <div className={`${styles.scroller} mx-[6px] h-[32%] overflow-y-auto`}>
                         {selectedSeats.map((selectedSeat: SelectedSeatWithRow) => (
@@ -63,7 +63,7 @@ const SelectedSeats: React.FC<SelectedSeatsProps> = ({ setShowModal }) => {
                         <div className='mb-[32px] text-center'>
                             <Button
                                 onClick={() => setShowModal(true)}
-                                className='h-[50px] w-[250px] rounded-[10px] bg-primary-dark text-[20px] font-medium text-white'
+                                className={styles.button}
                             >
                                 Purchase <span className='pl-2'>({`${selectedSeats.length * 24}$`})</span>
                             </Button>
