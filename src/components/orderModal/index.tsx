@@ -42,7 +42,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ setShowModal, setCongratsModal 
         setCardError(event.error ? event.error.message : null);
     };
 
-    const handleClick = () => {
+    const updatedSeats = () => {
         const updatedSeats = seats.map((row: Row) => ({
             ...row,
             seats: row.seats.map((seat: Seat) =>
@@ -91,6 +91,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ setShowModal, setCongratsModal 
                                         setCardError(error.message);
                                     } else {
                                         console.log("PaymentMethod", paymentMethod);
+                                        updatedSeats();
                                         // Send paymentMethod.id to your server to handle the payment
                                     }
                                 }
@@ -140,7 +141,6 @@ const OrderModal: React.FC<OrderModalProps> = ({ setShowModal, setCongratsModal 
                                         <Button
                                             className='mx-auto flex w-full max-w-[250px] bg-primary-dark'
                                             type='submit'
-                                            onClick={handleClick}
                                             disabled={props.isSubmitting}
                                         >
                                             <span className={`${props.isSubmitting ? "hidden" : "block"}`}>Purchase (48$)</span>
