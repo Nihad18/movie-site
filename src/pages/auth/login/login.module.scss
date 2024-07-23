@@ -3,27 +3,45 @@
 
 @layer components {
     .login {
-        @apply absolute inset-0 grid h-full w-full place-items-center px-3;
+        // Positioning
+        @apply absolute inset-0;
+
+        // Box model
+        @apply h-full w-full px-3;
+        
+        // Misc
+        @apply grid place-items-center;
     }
+
     .wrapper {
+        // Box model
         @apply rounded-[5px] bg-white;
     }
+
     .title {
+        // Typographic
         @apply text-center text-3xl font-bold;
     }
 }
 
 .wrapper {
-    max-width: 700px;
-    width: 100%;
+    // Positioning
     position: relative;
     z-index: 2;
+
+    // Box model
+    max-width: 700px;
+    width: 100%;
     padding: 30px 30px 35px;
+
     @media (min-width: 576px) {
+        // Box model
         padding-left: 60px;
         padding-right: 60px;
     }
+
     @media (min-width: 768px) {
+        // Box model
         padding-left: 112px;
         padding-right: 112px;
     }

@@ -20,7 +20,7 @@ interface OrderModalProps {
 
 const OrderModal: React.FC<OrderModalProps> = ({ setShowModal, setCongratsModal }) => {
     const { seats, setSeats, selectedSeats, setSelectedSeats } = useContext(DataContext);
-    
+
     const initialValues: OrderFormData = {
         nameSurname: "",
         email: "",
@@ -70,7 +70,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ setShowModal, setCongratsModal 
                             />
                         </svg>
                     </button>
-                    <div className={styles["modal-inner"]}>
+                    <div className={styles["content"]}>
                         <h5 className={styles.title}>ORDER</h5>
                         <Formik
                             initialValues={initialValues}

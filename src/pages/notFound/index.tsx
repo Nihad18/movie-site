@@ -22,7 +22,7 @@ const NotFound = () => {
                                     xmlnsXlink="http://www.w3.org/1999/xlink"
                                     xmlns="http://www.w3.org/2000/svg"
                                     version="1.1"
-                                    className="curve_svg"
+                                    className={styles["curve_svg"]}
                                 >
                                     <path
                                         d="M70.343,70.343c-30.554,30.553-44.806,72.7-39.102,115.635l-29.738,3.951C-5.442,137.659,11.917,86.34,49.129,49.13
@@ -33,7 +33,7 @@ const NotFound = () => {
                             <div className={styles["display_div"]}>
                                 <div className={styles["screen_out"]}>
                                     <div className={styles["screen_out1"]}>
-                                        <div className={styles["screen"]}>
+                                        <div className={`${styles["screen"]} ${Math.random() < 0.5 ? "" : styles['aditional-style']}`}>
                                             <span className={styles["notfound_text"]}> NOT FOUND</span>
                                         </div>
                                     </div>

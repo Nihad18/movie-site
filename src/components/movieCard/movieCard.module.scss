@@ -1,68 +1,101 @@
 @import "../../styles/partials/variables.scss";
+@import "../../styles/partials/mixin.scss";
+
 .card {
+    // Positioning
     position: relative;
+
+    // Box model
     width: 100%;
     height: calc(100% - 5px);
     border-radius: 5px;
     overflow: hidden;
-    &::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: 1;
 
+    &::after {
+        // Positioning
+        @include Position($pos: absolute, $inset: 0, $z-index: 0);
+
+        // Box model
         width: 100%;
         height: 100%;
 
+        // Visual
         background-image: $card-gradient;
+
+        // Misc
+        content: "";
     }
+
     @media (min-width: 480px) {
+        // Box model
         height: calc(100vw / 1.5 - 5px);
     }
 
     @media (min-width: 880px) {
+        // Box model
         height: calc(100vw / 3 - 5px);
     }
 
     @media (min-width: 1305px) {
+        // Box model
         height: 450px;
     }
+
     .details {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 2;
+        // Positioning
+        @include Position($pos: absolute, $bottom: 0, $left: 0, $right: 0, $z-index: 2);
+
+        // Box model
         width: 100%;
-        color: $white;
         padding: 30px;
+
         @media (min-width: 480px) {
+            // Box model
             padding: 15px;
         }
+
         @media (min-width: 1024px) {
+            // Box model
             padding: 20px;
         }
+
         @media (min-width: 1280px) {
+            // Box model
             padding: 30px;
         }
+
+        // Typographic
+        color: $white;
+
         .name {
+            // Typographic
             font-weight: 600;
             font-size: 22px;
             line-height: 20px;
         }
+
         .age-limit {
+            // Typographic
             font-weight: 500;
         }
+
         .languages {
+            // Box model
             display: flex;
             gap: 6px;
             margin-top: 6px;
+
             .language {
-                font-size: 14px;
-                line-height: 16px;
-                background-color: $white-transparent;
+                // Box model
                 padding: 4px 10.325px;
                 border-radius: 5px;
+
+                // Typographic
+                font-size: 14px;
+                line-height: 16px;
+
+                // Visual
+                background-color: $white-transparent;
             }
         }
     }

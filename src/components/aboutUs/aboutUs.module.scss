@@ -1,9 +1,13 @@
 @import "../../styles/partials/variables.scss";
+@import "../../styles/partials/mixin.scss";
 
 .image {
+    // Box model
     width: 100%;
     max-width: 420px;
     padding-top: 30px;
+
+    // Media queries
     @media (min-width: 768px) {
         padding-top: 0;
         max-width: none;
@@ -14,9 +18,12 @@
 }
 
 .content {
+    // Box model
     width: 100%;
     max-width: 420px;
     padding-bottom: 30px;
+
+    // Media queries
     @media (min-width: 768px) {
         padding-bottom: 0;
         max-width: none;
@@ -28,16 +35,19 @@
 }
 
 .date {
+    // Box model
     display: block;
     margin-top: 10px;
 }
 
 .title {
+    // Typography
     font-size: 25px;
     line-height: 24px;
     font-weight: 500;
 
     .date {
+        // Typography
         font-weight: 300;
         line-height: 1.5;
         font-size: 11px;
@@ -46,18 +56,27 @@
 }
 
 .description {
+    // Positioning
     position: relative;
+
+    // Typography
     color: $gray-normal-alt2;
     font-weight: 500;
     line-height: 1.5;
+
+    // Box model
     margin-top: 30px;
+
     p {
+        // Typography
         font-size: 14px;
     }
+
     svg {
-        position: absolute;
-        bottom: 0;
-        right: 0;
+        // Positioning
+        @include Position($pos: absolute, $bottom: 0, $right: 0);
+
+        // Interaction
         cursor: pointer;
     }
 }
