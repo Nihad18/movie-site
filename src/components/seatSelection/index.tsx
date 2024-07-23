@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { DataContext } from "@/context/MainContext";
 import { SeatStatus } from "@/enums/SeatStatus";
 import { dates, times } from "@/lib/utils";
+import styles from "./seatSelection.module.scss";
 
 const SeatSelection = () => {
     const { activeDate, setActiveDate, activeTime, setActiveTime, seats, setSeats } = useContext(DataContext);
@@ -17,18 +18,17 @@ const SeatSelection = () => {
         }
         setSeats([...newSeats]);
     };
+    
     return (
-        <div className='min-h-screen w-full bg-black lg:w-[53%] lg:overflow-y-auto'>
+        <div className={styles["seat-selection"]}>
             <div>
-                <div className='pb-[14px] pt-[30px] text-center text-[18px] text-white md:pb-[34px] md:pt-[80px] md:text-[25px]'>Date</div>
+                <div className={styles["date-text"]}>Date</div>
                 <div className='flex justify-center'>
                     {dates.map((date, index) => (
                         <div
                             key={index}
                             onClick={() => setActiveDate(date)}
-                            className={`${
-                                date == activeDate ? "bg-primary-dark" : "bg-gray-darker-alt3"
-                            } mr-[13px] flex h-[58px] w-[40px] cursor-pointer items-center justify-center rounded-[30px] text-white transition-colors duration-200 last:mr-0 md:mr-[23px]`}
+                            className={`${date == activeDate ? "bg-primary-dark" : "bg-gray-darker-alt3"} ${styles["date-button"]}`}
                         >
                             {date}
                         </div>
@@ -36,18 +36,16 @@ const SeatSelection = () => {
                 </div>
             </div>
 
-            <div className='mx-auto mb-[26px] mt-[32px] h-[1px] max-w-[447px] bg-gray-darkest-alt2 md:mb-[46px] md:mt-[52px]'></div>
+            <div className={`${styles.seperator} mb-[26px] max-w-[447px] md:mb-[46px]`}></div>
 
             <div>
-                <div className='pb-[14px] text-center text-[18px] text-white md:pb-[34px] md:text-[25px]'>Time</div>
+                <div className={styles["time-text"]}>Time</div>
                 <div className='flex justify-center'>
                     {times.map((time, index) => (
                         <div
                             key={index}
                             onClick={() => setActiveTime(time)}
-                            className={`${
-                                time == activeTime ? "bg-primary-dark" : "bg-gray-darker-alt3"
-                            } mr-[13px] flex h-[32px] w-[60px] cursor-pointer items-center justify-center rounded-[30px] text-white transition-colors duration-200 last:mr-0 md:mr-[23px] md:h-[42px] md:w-[107px]`}
+                            className={`${time == activeTime ? "bg-primary-dark" : "bg-gray-darker-alt3"} ${styles["time-button"]}`}
                         >
                             {time}
                         </div>
@@ -55,11 +53,11 @@ const SeatSelection = () => {
                 </div>
             </div>
 
-            <div className='mx-auto mb-[134px] mt-[32px] h-[1px] max-w-[638px] bg-gray-darkest-alt2 md:mt-[52px]'></div>
+            <div className={`${styles.seperator} mb-[134px] max-w-[638px]`}></div>
 
             <div className='relative'>
                 <div className='absolute top-[-45%] w-full'>
-                    <img src='/LIGHT.svg' className="mx-auto" alt='light' />
+                    <img src='/LIGHT.svg' className='mx-auto' alt='light' />
                 </div>
                 {seats?.map((row, rowIndex) => (
                     <div className='relative my-[5.5px] flex items-center justify-center' key={rowIndex}>
@@ -75,7 +73,7 @@ const SeatSelection = () => {
                                             : seat.status == SeatStatus.Available
                                               ? "cursor-pointer bg-gray-light"
                                               : "cursor-pointer bg-primary-dark"
-                                    } mx-[5px] flex h-[17px] w-[17px] flex-shrink-0 items-center justify-center rounded-full transition-colors duration-200 md:mx-[6px] md:h-[19px] md:w-[19px]`}
+                                    } ${styles["seat-button"]}`}
                                 ></div>
                             ))}
                         </div>
@@ -84,17 +82,17 @@ const SeatSelection = () => {
                 ))}
             </div>
 
-            <div className='mb-[80px] mt-[26px] flex justify-center text-[15px] text-white md:mb-[127px] md:mt-[36px]'>
+            <div className={styles["seat-status-container"]}>
                 <div className='mr-[25.26px] flex items-center'>
-                    <div className='mr-[12.63px] h-4 w-4 rounded-full bg-gray-light'></div>
+                    <div className={`${styles["seat-status"]} bg-gray-light`}></div>
                     <div>Available</div>
                 </div>
                 <div className='mr-[25.26px] flex items-center'>
-                    <div className='mr-[12.63px] h-4 w-4 rounded-full bg-gray-darker-alt4'></div>
+                    <div className={`${styles["seat-status"]} bg-gray-darker-alt4`}></div>
                     <div>Booked</div>
                 </div>
                 <div className='flex items-center'>
-                    <div className='mr-[12.63px] h-4 w-4 rounded-full bg-primary-dark'></div>
+                    <div className={`${styles["seat-status"]} bg-primary-dark`}></div>
                     <div>Selected</div>
                 </div>
             </div>

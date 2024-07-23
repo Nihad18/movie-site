@@ -1,0 +1,35 @@
+.seat-selection {
+    @apply min-h-screen w-full bg-black lg:w-[53%] lg:overflow-y-auto;
+
+    .date-text {
+        @apply pb-[14px] pt-[30px] text-center text-[18px] text-white md:pb-[34px] md:pt-[80px] md:text-[25px];
+    }
+
+    .date-button {
+        @apply mr-[13px] flex h-[58px] w-[40px] cursor-pointer items-center justify-center rounded-[30px] text-white transition-colors duration-200 last:mr-0 md:mr-[23px];
+    }
+
+    .seperator {
+        @apply mx-auto mt-[32px] h-[1px] bg-gray-darkest-alt2 md:mt-[52px];
+    }
+
+    .time-text {
+        @apply pb-[14px] text-center text-[18px] text-white md:pb-[34px] md:text-[25px];
+    }
+
+    .time-button {
+        @apply mr-[13px] flex h-[32px] w-[60px] cursor-pointer items-center justify-center rounded-[30px] text-white transition-colors duration-200 last:mr-0 md:mr-[23px] md:h-[42px] md:w-[107px];
+    }
+
+    .seat-button {
+        @apply mx-[5px] flex h-[17px] w-[17px] flex-shrink-0 items-center justify-center rounded-full transition-colors duration-200 md:mx-[6px] md:h-[19px] md:w-[19px];
+    }
+
+    .seat-status-container {
+        @apply mb-[80px] mt-[26px] flex justify-center text-[15px] text-white md:mb-[127px] md:mt-[36px];
+
+        .seat-status {
+            @apply mr-[12.63px] h-4 w-4 rounded-full;
+        }
+    }
+}
