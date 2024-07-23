@@ -1,31 +1,220 @@
-.image {
-    width: 100%;
-    max-width: 558px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    
-    img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        position: absolute;
+@import "../../styles/partials/variables.scss";
+
+.latest-news {
+    // Box model
+    max-width: 1081px;
+
+    // Misc
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    @media (min-width: 1024px) {
+        // Misc
+        padding-left: 0;
+        padding-right: 0;
     }
-}
 
-.images{
-    margin-right: 23px;
+    &-text {
+        // Typography
+        font-size: 25px;
+        font-weight: 500;
+    }
 
-    img{
-        width: 85.3px;
-        height: 73px;
-        object-fit: cover;
-        border-radius: 5px;
-        
-        @media (max-width: 992px) {
-            width: 75.3px;
-            height: 63px;
+    &-container {
+        // Box model
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        // Misc
+        margin-top: 30px;
+
+        @media (min-width: 768px) {
+            // Box model
+            flex-direction: row;
+        }
+
+        @media (min-width: 1024px) {
+            // Misc
+            margin-top: 50px;
+        }
+
+        .main-news {
+            // Positioning
+            position: relative;
+
+            // Box model
+            display: flex;
+            height: 304px;
+            width: 100%;
+            align-items: flex-end;
+
+            // Misc
+            padding-left: 12px;
+
+            @media (min-width: 640px) {
+                // Box model
+                max-width: 350px;
+            }
+
+            @media (min-width: 768px) {
+                // Box model
+                max-width: 100%;
+                // Misc
+                margin-right: 30px;
+            }
+
+            @media (min-width: 1024px) {
+                // Box model
+                max-width: 558px;
+                height: 457px;
+
+                //Misc
+                padding-left: 35px;
+            }
+
+            &-title {
+                // Box model
+                max-width: 314px;
+
+                // Typography
+                font-size: 16px;
+                font-weight: 600;
+                color: white;
+
+                // Misc
+                padding-bottom: 22px;
+
+                @media (min-width: 640px) {
+                    // Typography
+                    font-size: 20px;
+
+                    // Misc
+                    padding-bottom: 10px;
+                }
+
+                @media (min-width: 1024px) {
+                    // Misc
+                    padding-bottom: 22px;
+                }
+            }
+
+            &-desc {
+                // Box model
+                max-width: 471px;
+
+                // Typography
+                font-size: 12px;
+                font-weight: 500;
+                color: $gray-lighter-alt5;
+
+                // Misc
+                padding-bottom: 52px;
+
+                @media (min-width: 640px) {
+                    // Typography
+                    font-size: 15px;
+
+                    // Misc
+                    padding-bottom: 10px;
+                }
+
+                @media (min-width: 1024px) {
+                    // Misc
+                    padding-bottom: 52px;
+                }
+            }
+        }
+
+        .other-news {
+            // Box model
+            height: 304px;
+            width: 100%;
+
+            // Misc
+            margin-top: 2rem;
+
+            @media (min-width: 640px) {
+                max-width: 350px;
+            }
+
+            @media (min-width: 768px) {
+                display: flex;
+                max-width: 100%;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            @media (min-width: 1024px) {
+                display: block;
+                height: 400px;
+                max-width: 472.3px;
+                margin-top: 0;
+            }
+
+            &-time {
+                // Typography
+                font-size: 11px;
+                font-weight: 300;
+                font-style: italic;
+
+                // Misc
+                padding-bottom: 5px;
+            }
+
+            &-title {
+                // Typography
+                font-size: 12px;
+                font-weight: 600;
+            }
+        }
+    }
+
+    .image {
+        // Positioning
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        // Box model
+        height: 100%;
+        width: 100%;
+        max-width: 558px;
+
+        img {
+            // Positioning
+            position: absolute;
+
+            // Box model
+            height: 100%;
+            width: 100%;
+
+            // Visual
+            object-fit: cover;
+        }
+    }
+
+    .images {
+        // Box model
+        margin-right: 23px;
+
+        img {
+            // Box model
+            height: 73px;
+            width: 85.3px;
+
+            // Visual
+            border-radius: 5px;
+            object-fit: cover;
+
+            @media (max-width: 992px) {
+                // Box model
+                height: 63px;
+                width: 75.3px;
+            }
         }
     }
 }

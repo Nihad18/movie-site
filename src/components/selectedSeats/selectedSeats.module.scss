@@ -1,20 +1,71 @@
 @import "../../styles/partials/variables.scss";
 
 .selected-seats-container {
-    @apply relative grid min-h-screen w-full place-items-center bg-cover bg-center bg-no-repeat lg:w-[47%];
+    // Positioning
+    position: relative;
+
+    // Box model
+    display: grid;
+    min-height: 100vh;
+    width: 100%;
+    place-items: center;
+
+    // Visual
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @media (min-width: 1024px) {
+        width: 47%;
+    }
 
     .selected-seats {
-        @apply relative mt-[100px] h-[524px] w-[90%] bg-black text-xl text-white sm:w-[409px] 2xl:mt-[150px];
+        // Positioning
+        position: relative;
+
+        // Box model
+        height: 524px;
+        width: 90%;
+
+        // Typography
+        font-size: 1.25rem;
+        color: white;
+
+        // Visual
+        background-color: $black-alt;
+
+        // Misc
+        margin-top: 100px;
+
+        @media (min-width: 640px) {
+            width: 409px;
+        }
+
+        @media (min-width: 1536px) {
+            margin-top: 150px;
+        }
     }
 
     .button {
-        @apply h-[50px] w-[250px] rounded-[10px] bg-primary-dark text-[20px] font-medium text-white;
-    }
+        // Box model
+        height: 50px;
+        width: 250px;
 
+        // Typography
+        font-size: 20px;
+        font-weight: 500;
+        color: white;
+
+        // Visual
+        border-radius: 10px;
+        background-color: $red;
+    }
     .scroller {
         &::-webkit-scrollbar {
-            background-color: $black;
+            //Box model
             width: 8px;
+            // Visual
+            background-color: black;
             border-radius: 4px;
         }
         &::-webkit-scrollbar-thumb {

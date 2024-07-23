@@ -1,60 +1,96 @@
 .image {
+    // Box model
     width: 100%;
     max-width: 558px;
     height: 100%;
+
     img {
+        // Box model
         width: 100%;
         height: 100%;
+
+        // Visual
         object-fit: cover;
     }
 }
 
 .line-container {
+    // Positioning
     position: relative;
+
+    // Misc
     margin-top: 20px;
 
     .line {
+        // Positioning
         position: absolute;
+
+        // Box model
         height: 1px;
         width: 100%;
     }
 
     .fill-line {
+        // Positioning
         position: absolute;
+
+        // Box model
         height: 1px;
+
+        // Misc
         transition: width 0.3s ease;
     }
+
     .marker-container {
+        // Positioning
         position: absolute;
         top: -8px;
+
+        // Misc
         cursor: pointer;
 
         .marker-label,
         .active-marker-label {
-            font-weight: 500;
-            font-size: 17px;
-            line-height: 24px;
+            // Positioning
             position: absolute;
             top: -13px;
             left: -15px;
 
+            // Typography
+            font-weight: 500;
+            font-size: 17px;
+            line-height: 24px;
+
             @media screen and (max-width: 1024px) {
-                font-size: 14px;
+                // Positioning
                 top: -10px;
                 left: -12px;
+
+                // Typography
+                font-size: 14px;
             }
+
             @media screen and (max-width: 640px) {
-                font-size: 12px;
+                // Positioning
                 top: -8px;
                 left: -10px;
+
+                // Typography
+                font-size: 12px;
             }
         }
+
         .marker,
         .active-marker {
+            // Positioning
             position: absolute;
             top: 24px;
+
+            // Box model
             height: 9px;
             width: 9px;
+
+            // Visual
             border-radius: 50%;
         }
     }
