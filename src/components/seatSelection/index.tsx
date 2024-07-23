@@ -27,7 +27,7 @@ const SeatSelection = () => {
                             key={index}
                             onClick={() => setActiveDate(date)}
                             className={`${
-                                date == activeDate ? "bg-gray-lightest-alt" : "bg-gray-darker-alt3"
+                                date == activeDate ? "bg-primary-dark" : "bg-gray-darker-alt3"
                             } mr-[13px] flex h-[58px] w-[40px] cursor-pointer items-center justify-center rounded-[30px] text-white transition-colors duration-200 last:mr-0 md:mr-[23px]`}
                         >
                             {date}
@@ -46,7 +46,7 @@ const SeatSelection = () => {
                             key={index}
                             onClick={() => setActiveTime(time)}
                             className={`${
-                                time == activeTime ? "bg-gray-lightest-alt" : "bg-gray-darker-alt3"
+                                time == activeTime ? "bg-primary-dark" : "bg-gray-darker-alt3"
                             } mr-[13px] flex h-[32px] w-[60px] cursor-pointer items-center justify-center rounded-[30px] text-white transition-colors duration-200 last:mr-0 md:mr-[23px] md:h-[42px] md:w-[107px]`}
                         >
                             {time}
