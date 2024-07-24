@@ -4,10 +4,11 @@ export type LoginData = {
 };
 
 export type RegisterData = {
-    name: string;
-    surname: string;
+    firstName: string;
+    lastName: string;
     email: string;
-    dateOfBirth: string;
+    phone: string;
+    birthDate: string;
     password: string;
 };
 
