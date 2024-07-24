@@ -33,8 +33,9 @@ const OrderModal: React.FC<OrderModalProps> = ({ setShowModal, setCongratsModal 
     const user = useAuth();
     const [cardError, setCardError] = useState<string | undefined>(undefined);
 
-    if (user?.token && !initialValues.email) {
-        initialValues.email = user.user;
+    if (user?.token) {
+        initialValues.nameSurname = user?.user.name
+        initialValues.email = user?.user.email;
     }
 
     const handleCardElementChange = (event: any, setFieldValue: (field: string, value: any) => void) => {
