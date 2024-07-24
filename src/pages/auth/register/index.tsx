@@ -6,32 +6,39 @@ import { Formik } from "formik";
 import { RegisterSchema } from "@/validations";
 import { RegisterData } from "@/types/AuthTypes";
 import DatePicker from "@/components/ui/datePicker/DatePicker";
+import UserService from "@/services/UserService";
+import { CellPhoneInput } from "@/components/ui/CellPhoneInput";
 
 const Register = () => {
-    const initialValues: RegisterData = { name: "", surname: "", email: "", dateOfBirth: "", password: "" };
+    const initialValues: RegisterData = { firstName: "", lastName: "", email: "", phone: "", birthDate: "", password: "" };
     const navigate = useNavigate();
-
     return (
         <div className={styles.login}>
             <div className={`${styles.wrapper}`}>
                 <h2 className={`text-black ${styles.title} mb-5`}>Sign Up</h2>
                 <Formik
                     initialValues={initialValues}
-                    onSubmit={(values, actions) => {
-                        setTimeout(() => {
-                            alert(JSON.stringify(values, null, 2));
+                    onSubmit={async (values, actions) => {
+                        try {
+                            const res = await UserService.register(values);
+                            if (res) {
+                                actions.setSubmitting(false);
+                                navigate("/login");
+                            }
+                        } catch (error) {
+                            console.error("Error during registration:", error);
                             actions.setSubmitting(false);
-                            navigate("/login");
-                        }, 3000);
+                        }
                     }}
                     validationSchema={RegisterSchema}
                 >
                     {(props) => (
                         <form className='grid gap-y-5' onSubmit={props.handleSubmit} noValidate>
-                            <Input name='name' type='text' id='name' placeholder='Name' />
-                            <Input name='surname' type='text' id='surname' placeholder='Surname' />
+                            <Input name='firstName' type='text' id='name' placeholder='Name' />
+                            <Input name='lastName' type='text' id='surname' placeholder='Surname' />
                             <Input name='email' type='email' id='email' placeholder='Email' />
-                            <DatePicker name='dateOfBirth' placeholder='Birth date' />
+                            <CellPhoneInput name="phone" type="text" />
+                            <DatePicker name='birthDate' placeholder='Birth date' />
                             <Input name='password' type='password' id='password' placeholder='Password' />
                             <div className='relative'>
                                 <Button className='w-full' type='submit' disabled={props.isSubmitting}>
