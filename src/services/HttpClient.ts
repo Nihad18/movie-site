@@ -1,3 +1,4 @@
+import { LoginData, RegisterData } from "@/types/AuthTypes";
 import axios, { AxiosResponse } from "axios";
 
 export class HttpClient {
@@ -11,7 +12,17 @@ export class HttpClient {
             },
         });
     }
-    static async post<T>(path: string, data: T): Promise<AxiosResponse<T>> {
-        return axios.post<T>(`${URL}${path}`, data);
+    static async post<T>(path: string, data: LoginData | RegisterData): Promise<AxiosResponse<T>> {
+        try {
+            const response = await axios.post<T>(`${this.URL}${path}`, data, {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            return response;
+        } catch (error) {
+            console.error("Error in POST request:", error);
+            throw error;
+        }
     }
 }

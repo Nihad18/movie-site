@@ -2,13 +2,26 @@ import { HttpClient } from "@/services/HttpClient";
 import { LoginData, RegisterData } from "@/types/AuthTypes";
 
 export default class UserService {
-    static loginURL = "/v1/api/login";
-    static registerURL = "/v1/api/register";
+    static loginURL = "/users/login";
+    static registerURL = "/users/register";
 
-    static login(data: LoginData) {
-        return HttpClient.post<any>(this.loginURL, data);
+    static async login(data: LoginData): Promise<any> {
+        try {
+            const response = await HttpClient.post<any>(this.loginURL, data);
+            return response.data;
+        } catch (error) {
+            console.error("Error during login:", error);
+            throw error;
+        }
     }
-    static register(data: RegisterData) {
-        return HttpClient.post<any>(this.registerURL, data);
+
+    static async register(data: RegisterData): Promise<any> {
+        try {
+            const response = await HttpClient.post<any>(this.registerURL, data);
+            return response.data;
+        } catch (error) {
+            console.error("Error during registration:", error);
+            throw error;
+        }
     }
 }
