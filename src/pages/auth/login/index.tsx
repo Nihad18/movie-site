@@ -6,8 +6,10 @@ import { Formik } from "formik";
 import { LoginSchema } from "@/validations";
 import { useAuth } from "@/context/AuthContext";
 import { LoginData } from "@/types/AuthTypes";
+import { useState } from "react";
 
 const Login = () => {
+    const [error, setError] = useState<string>("")
     const initialValues: LoginData = { email: "", password: "" };
 
     const auth = useAuth();
@@ -18,18 +20,24 @@ const Login = () => {
                 <h2 className={`text-black ${styles.title} mb-5`}>Login</h2>
                 <Formik
                     initialValues={initialValues}
-                    onSubmit={(values, actions) => {
-                        setTimeout(() => {
-                            auth?.loginAction(values);
-                            actions.setSubmitting(false);
-                        }, 3000);
+                    onSubmit={async (values, actions) => {
+                        const login = await auth?.loginAction(values)
+                        if (!login) {
+                            setError("Login or password is wrong!")
+                        }
+                        actions.setSubmitting(false);
+
                     }}
+
                     validationSchema={LoginSchema}
                 >
                     {(props) => (
                         <form className='grid gap-y-5' onSubmit={props.handleSubmit} noValidate>
                             <Input name='email' type='email' id='email' placeholder='Email' />
-                            <Input name='password' type='password' id='password' placeholder='Password' />
+                            <div className="grid gap-y-2">
+                                <Input name='password' type='password' id='password' placeholder='Password' />
+                                {error && <p className="text-red-600">{error}</p>}
+                            </div>
                             <div className='relative'>
                                 <Button className='w-full' type='submit' disabled={props.isSubmitting}>
                                     <span className={`${props.isSubmitting ? "hidden" : "block"}`}>Login</span>
